@@ -15,6 +15,7 @@ import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.html.Section;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment;
+import com.vaadin.flow.theme.lumo.LumoUtility.AlignContent;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 
 public class Secciones {

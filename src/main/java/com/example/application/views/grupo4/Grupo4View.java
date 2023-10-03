@@ -55,17 +55,13 @@ public class Grupo4View extends VerticalLayout {
         // Integrantes
         Map<String, String> est1 = new HashMap<>();
         est1.put("image", "https://cdn.iconscout.com/icon/free/png-512/free-avatar-369-456321.png?f=avif&w=256");
-        est1.put("name", "Estudiante 1");
+        est1.put("name", "Juan Manuel Isaza");
         Map<String, String> est2 = new HashMap<>();
-        est2.put("image", "https://cdn.iconscout.com/icon/free/png-512/free-avatar-369-456321.png?f=avif&w=256");
-        est2.put("name", "Estudiante 1");
-        Map<String, String> est3 = new HashMap<>();
-        est3.put("image", "https://cdn.iconscout.com/icon/free/png-512/free-avatar-369-456321.png?f=avif&w=256");
-        est3.put("name", "Estudiante 1");
+        est2.put("image", "https://firebasestorage.googleapis.com/v0/b/fotos-proyecto-bfc34.appspot.com/o/Fotos%2FAna%20Mar%C3%ADa%20Ospina%20Duarte.png?alt=media&token=e2bf6ceb-2b20-4fa7-8b79-67fca2d1984e&_gl=1*taz2yi*_ga*MTQ5NTE1NzQ3Ni4xNjk2MzQ0MDA1*_ga_CW55HF8NVT*MTY5NjM0NDAwNS4xLjEuMTY5NjM0NjM4Ny41MC4wLjA.");
+        est2.put("name", "Ana María Ospina");
 
         users.add(est1);
         users.add(est2);
-        users.add(est3);
         add(secciones.students(users));
 
         String titulo1;

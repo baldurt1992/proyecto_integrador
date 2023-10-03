@@ -55,17 +55,14 @@ public class Grupo8View extends VerticalLayout {
         // Integrantes
         Map<String, String> est1 = new HashMap<>();
         est1.put("image", "https://cdn.iconscout.com/icon/free/png-512/free-avatar-369-456321.png?f=avif&w=256");
-        est1.put("name", "Estudiante 1");
+        est1.put("name", "Stiven Rojas Martinez");
         Map<String, String> est2 = new HashMap<>();
-        est2.put("image", "https://cdn.iconscout.com/icon/free/png-512/free-avatar-369-456321.png?f=avif&w=256");
-        est2.put("name", "Estudiante 1");
-        Map<String, String> est3 = new HashMap<>();
-        est3.put("image", "https://cdn.iconscout.com/icon/free/png-512/free-avatar-369-456321.png?f=avif&w=256");
-        est3.put("name", "Estudiante 1");
+        est2.put("image", "https://firebasestorage.googleapis.com/v0/b/fotos-proyecto-bfc34.appspot.com/o/Fotos%2FJuan%20Miguel%20G%C3%B3mez.png?alt=media&token=1bbe6da3-e5db-4424-9e4e-55c324fa8329&_gl=1*18iuyys*_ga*MTQ5NTE1NzQ3Ni4xNjk2MzQ0MDA1*_ga_CW55HF8NVT*MTY5NjM0NDAwNS4xLjEuMTY5NjM0NjE1Ni42MC4wLjA.");
+        est2.put("name", "Juan Miguel Gomez");
+
 
         users.add(est1);
         users.add(est2);
-        users.add(est3);
         add(secciones.students(users));
 
         String titulo1;

@@ -54,14 +54,14 @@ public class Grupo7View extends VerticalLayout {
 
         // Integrantes
         Map<String, String> est1 = new HashMap<>();
-        est1.put("image", "https://cdn.iconscout.com/icon/free/png-512/free-avatar-369-456321.png?f=avif&w=256");
-        est1.put("name", "Estudiante 1");
+        est1.put("image", "https://firebasestorage.googleapis.com/v0/b/fotos-proyecto-bfc34.appspot.com/o/Fotos%2FAlejandra%20Tamayo%20Hernandez.png?alt=media&token=ee5cf90c-6c41-4b49-9648-035b4374fa0b&_gl=1*1pyyin4*_ga*MTQ5NTE1NzQ3Ni4xNjk2MzQ0MDA1*_ga_CW55HF8NVT*MTY5NjM0NDAwNS4xLjEuMTY5NjM0NjA1Ny42MC4wLjA.");
+        est1.put("name", "Alejandra Tamayo Hernandez");
         Map<String, String> est2 = new HashMap<>();
-        est2.put("image", "https://cdn.iconscout.com/icon/free/png-512/free-avatar-369-456321.png?f=avif&w=256");
-        est2.put("name", "Estudiante 1");
+        est2.put("image", "https://firebasestorage.googleapis.com/v0/b/fotos-proyecto-bfc34.appspot.com/o/Fotos%2FManuelaOrlas.png?alt=media&token=3fcebe16-d1ca-492d-9f15-907d6a46adae&_gl=1*16g32bf*_ga*MTQ5NTE1NzQ3Ni4xNjk2MzQ0MDA1*_ga_CW55HF8NVT*MTY5NjM0NDAwNS4xLjEuMTY5NjM0NjA4MC4zNy4wLjA.");
+        est2.put("name", "Manuela Orlas Rengifo");
         Map<String, String> est3 = new HashMap<>();
         est3.put("image", "https://cdn.iconscout.com/icon/free/png-512/free-avatar-369-456321.png?f=avif&w=256");
-        est3.put("name", "Estudiante 1");
+        est3.put("name", "Mariana Garzon Guerra");
 
         users.add(est1);
         users.add(est2);

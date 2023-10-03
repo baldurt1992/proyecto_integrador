@@ -54,18 +54,14 @@ public class Grupo9View extends VerticalLayout {
 
         // Integrantes
         Map<String, String> est1 = new HashMap<>();
-        est1.put("image", "https://cdn.iconscout.com/icon/free/png-512/free-avatar-369-456321.png?f=avif&w=256");
-        est1.put("name", "Estudiante 1");
+        est1.put("image", "https://firebasestorage.googleapis.com/v0/b/fotos-proyecto-bfc34.appspot.com/o/Fotos%2FSantiago%20Tamayo%20(1).png?alt=media&token=9b929996-cbc7-462a-89c8-6be5c2d15a05&_gl=1*4aqwi*_ga*MTQ5NTE1NzQ3Ni4xNjk2MzQ0MDA1*_ga_CW55HF8NVT*MTY5NjM0NDAwNS4xLjEuMTY5NjM0NjI2MC4zOS4wLjA.");
+        est1.put("name", "santiago tamayo");
         Map<String, String> est2 = new HashMap<>();
-        est2.put("image", "https://cdn.iconscout.com/icon/free/png-512/free-avatar-369-456321.png?f=avif&w=256");
-        est2.put("name", "Estudiante 1");
-        Map<String, String> est3 = new HashMap<>();
-        est3.put("image", "https://cdn.iconscout.com/icon/free/png-512/free-avatar-369-456321.png?f=avif&w=256");
-        est3.put("name", "Estudiante 1");
+        est2.put("image", "https://firebasestorage.googleapis.com/v0/b/fotos-proyecto-bfc34.appspot.com/o/Fotos%2Fimagen%20jorge%20uribe.png?alt=media&token=ee59bfcf-c3fd-4905-b1e5-c569f5d130ac&_gl=1*1rpi6x8*_ga*MTQ5NTE1NzQ3Ni4xNjk2MzQ0MDA1*_ga_CW55HF8NVT*MTY5NjM0NDAwNS4xLjEuMTY5NjM0NjIzOS42MC4wLjA.");
+        est2.put("name", "jorge uribe");
 
         users.add(est1);
         users.add(est2);
-        users.add(est3);
         add(secciones.students(users));
 
         String titulo1;
