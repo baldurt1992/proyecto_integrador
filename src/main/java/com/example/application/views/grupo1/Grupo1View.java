@@ -102,7 +102,7 @@ public class Grupo1View extends VerticalLayout {
         titulo1 = "Algoritmo 2";
         titulo2 = "Calculadora de calorías diaras\r\n" + //
                 "";
-        descripcion = "calculadora que ayuda a las personas a estimar la cantidad de calorías que deben consumir diariamente en función de su edad, género, nivel de actividad y objetivos de peso.";
+        descripcion = "Calculadora que ayuda a las personas a estimar la cantidad de calorías que deben consumir diariamente en función de su edad, género, nivel de actividad y objetivos de peso.";
         gist = "<script src=\"https://gist.github.com/baldurt1992/6e01ff37ac313a4182b367b692fcc4b5.js\"></script>";
         replit = "https://replit.com/@andresbaldur92/calculadoraCalorias";
         diagrama = "https://firebasestorage.googleapis.com/v0/b/fotos-proyecto-bfc34.appspot.com/o/Untitled%20Workspace.jpg?alt=media&token=fb4adc9c-2ece-4fa1-9040-38cb655d7e9e&_gl=1*mqkbk4*_ga*MTY3NDMzNDI5NC4xNjk0NTQ2MzEz*_ga_CW55HF8NVT*MTY5Njg5NTk2NS4xNC4xLjE2OTY4OTYwMDIuMjMuMC4w";
