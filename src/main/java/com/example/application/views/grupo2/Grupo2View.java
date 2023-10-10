@@ -10,6 +10,7 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.html.H3;
+import com.vaadin.flow.component.html.H4;
 import com.vaadin.flow.component.html.Hr;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
@@ -57,7 +58,7 @@ public class Grupo2View extends VerticalLayout {
         est1.put("image", "https://firebasestorage.googleapis.com/v0/b/fotos-proyecto-bfc34.appspot.com/o/Fotos%2FAngello%20Gomez.png?alt=media&token=e1bca8dd-d0fe-48a4-a596-260afe89240a&_gl=1*allqlf*_ga*MTQ5NTE1NzQ3Ni4xNjk2MzQ0MDA1*_ga_CW55HF8NVT*MTY5NjM0NDAwNS4xLjEuMTY5NjM0NTM3My42MC4wLjA.");
         est1.put("name", "Angello Gomez Monsalve");
         Map<String, String> est2 = new HashMap<>();
-        est2.put("image", "https://cdn.iconscout.com/icon/free/png-512/free-avatar-369-456321.png?f=avif&w=256");
+        est2.put("image", "https://firebasestorage.googleapis.com/v0/b/fotos-proyecto-bfc34.appspot.com/o/Fotos%2Fbrayan%20steven.png?alt=media&token=7f210c2b-105b-4d78-b884-7bb11d11b810&_gl=1*1ld106m*_ga*MTY3NDMzNDI5NC4xNjk0NTQ2MzEz*_ga_CW55HF8NVT*MTY5Njg2ODg1NS4xMi4xLjE2OTY4Njg5ODIuNjAuMC4w");
         est2.put("name", "Brayan Ortega");
         Map<String, String> est3 = new HashMap<>();
         est3.put("image", "https://firebasestorage.googleapis.com/v0/b/fotos-proyecto-bfc34.appspot.com/o/Fotos%2FAndr%C3%A9s%20Camilo%20Quintana.png?alt=media&token=36705d48-6898-4262-bc7e-eef1b5223883&_gl=1*dfg882*_ga*MTQ5NTE1NzQ3Ni4xNjk2MzQ0MDA1*_ga_CW55HF8NVT*MTY5NjM0NDAwNS4xLjEuMTY5NjM0NTQ0MS42MC4wLjA.");
@@ -83,6 +84,7 @@ public class Grupo2View extends VerticalLayout {
         replit = "https://replit.com/@jhonvalencia3/ProyectoPrueba";
         diagrama = "https://firebasestorage.googleapis.com/v0/b/cesde-7fe22.appspot.com/o/Proyecto%20Integrador%2FDiagrama.svg?alt=media&token=e04cad73-fd1c-4972-a571-da1389d04689";
         add(secciones.algoritmo(titulo1, titulo2, descripcion, algoritmo1(), gist, replit, diagrama));
+
 
     }
 
@@ -134,5 +136,6 @@ public class Grupo2View extends VerticalLayout {
         hl.add(vl2);
         return hl;
     }
+
 
 }

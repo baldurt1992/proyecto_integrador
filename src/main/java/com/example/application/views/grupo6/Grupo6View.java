@@ -57,10 +57,10 @@ public class Grupo6View extends VerticalLayout {
         est1.put("image", "https://firebasestorage.googleapis.com/v0/b/fotos-proyecto-bfc34.appspot.com/o/Fotos%2FFoto%20256x256%20Carla%20Zapata.png?alt=media&token=9231e37d-3c42-4158-a127-28660bd0f408&_gl=1*1orsqne*_ga*MTQ5NTE1NzQ3Ni4xNjk2MzQ0MDA1*_ga_CW55HF8NVT*MTY5NjM0NDAwNS4xLjEuMTY5NjM0NTk3Mi42MC4wLjA.");
         est1.put("name", "Carla Zapata");
         Map<String, String> est2 = new HashMap<>();
-        est2.put("image", "https://cdn.iconscout.com/icon/free/png-512/free-avatar-369-456321.png?f=avif&w=256");
-        est2.put("name", "Sebastian Castañor");
+        est2.put("image", "https://firebasestorage.googleapis.com/v0/b/fotos-proyecto-bfc34.appspot.com/o/Fotos%2Ffoto_SebastianCasta%C3%B1o.png?alt=media&token=234f6ab3-731a-4e51-9ce3-f0652bb7fd6d&_gl=1*wyhirh*_ga*MTY3NDMzNDI5NC4xNjk0NTQ2MzEz*_ga_CW55HF8NVT*MTY5Njg2ODg1NS4xMi4xLjE2OTY4NjkwNzcuNDUuMC4w");
+        est2.put("name", "Sebastian Castaño");
         Map<String, String> est3 = new HashMap<>();
-        est3.put("image", "https://cdn.iconscout.com/icon/free/png-512/free-avatar-369-456321.png?f=avif&w=256");
+        est3.put("image", "https://firebasestorage.googleapis.com/v0/b/fotos-proyecto-bfc34.appspot.com/o/Fotos%2FSebastian%20Garces.png?alt=media&token=5fe733b6-0c90-47f7-89bd-5c9ec2c3b9b6&_gl=1*11lmoir*_ga*MTY3NDMzNDI5NC4xNjk0NTQ2MzEz*_ga_CW55HF8NVT*MTY5Njg2ODg1NS4xMi4xLjE2OTY4NjkwNjIuNjAuMC4w");
         est3.put("name", "Sebastian Garces");
 
         users.add(est1);

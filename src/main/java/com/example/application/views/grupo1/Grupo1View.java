@@ -1,12 +1,20 @@
 package com.example.application.views.grupo1;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.text.DecimalFormat;
+
+
+import org.atmosphere.util.StringFilterAggregator;
 
 import com.example.application.views.MainLayout;
 import com.example.application.views.Secciones;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.combobox.ComboBox;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.html.H3;
@@ -14,9 +22,12 @@ import com.vaadin.flow.component.html.Hr;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.component.textfield.IntegerField;
 import com.vaadin.flow.component.textfield.NumberField;
+import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
+import com.vaadin.flow.component.ClickEvent;
 
 @PageTitle("Grupo 1")
 @Route(value = "grupo-1", layout = MainLayout.class)
@@ -26,7 +37,6 @@ public class Grupo1View extends VerticalLayout {
 
         setAlignItems(Alignment.CENTER);
         setSizeFull();
-       
 
         VerticalLayout vl = new VerticalLayout();
         vl.setJustifyContentMode(JustifyContentMode.CENTER);
@@ -56,13 +66,16 @@ public class Grupo1View extends VerticalLayout {
 
         // Integrantes
         Map<String, String> est1 = new HashMap<>();
-        est1.put("image", "https://firebasestorage.googleapis.com/v0/b/fotos-proyecto-bfc34.appspot.com/o/Fotos%2FBaldur%202-fotor-2023092613481.png?alt=media&token=7074c54a-9223-40d9-be3c-079af1eb631c&_gl=1*htidj1*_ga*MTQ5NTE1NzQ3Ni4xNjk2MzQ0MDA1*_ga_CW55HF8NVT*MTY5NjM0NDAwNS4xLjEuMTY5NjM0NTE5Ni45LjAuMA..");
+        est1.put("image",
+                "https://firebasestorage.googleapis.com/v0/b/fotos-proyecto-bfc34.appspot.com/o/Fotos%2FBaldur%202-fotor-2023092613481.png?alt=media&token=7074c54a-9223-40d9-be3c-079af1eb631c&_gl=1*htidj1*_ga*MTQ5NTE1NzQ3Ni4xNjk2MzQ0MDA1*_ga_CW55HF8NVT*MTY5NjM0NDAwNS4xLjEuMTY5NjM0NTE5Ni45LjAuMA..");
         est1.put("name", "Andrés Baldur Tamayo");
         Map<String, String> est2 = new HashMap<>();
-        est2.put("image", "https://firebasestorage.googleapis.com/v0/b/fotos-proyecto-bfc34.appspot.com/o/Fotos%2FEdison%20Mart%C3%ADnez%20Osorio.png?alt=media&token=6791f7ec-5e02-4f02-aa0d-c47a44b993ff&_gl=1*xnv67*_ga*MTQ5NTE1NzQ3Ni4xNjk2MzQ0MDA1*_ga_CW55HF8NVT*MTY5NjM0NDAwNS4xLjEuMTY5NjM0NTIxMi42MC4wLjA.");
+        est2.put("image",
+                "https://firebasestorage.googleapis.com/v0/b/fotos-proyecto-bfc34.appspot.com/o/Fotos%2FEdison%20Mart%C3%ADnez%20Osorio.png?alt=media&token=6791f7ec-5e02-4f02-aa0d-c47a44b993ff&_gl=1*xnv67*_ga*MTQ5NTE1NzQ3Ni4xNjk2MzQ0MDA1*_ga_CW55HF8NVT*MTY5NjM0NDAwNS4xLjEuMTY5NjM0NTIxMi42MC4wLjA.");
         est2.put("name", "Edison Martínez Osorio");
         Map<String, String> est3 = new HashMap<>();
-        est3.put("image", "https://firebasestorage.googleapis.com/v0/b/fotos-proyecto-bfc34.appspot.com/o/Fotos%2FDuber%20%20Carmona-fotor-2023100393639.png?alt=media&token=eb0de2b9-41b8-4fd9-bb7e-3c2db9ac29a1&_gl=1*1s63mq7*_ga*MTQ5NTE1NzQ3Ni4xNjk2MzQ0MDA1*_ga_CW55HF8NVT*MTY5NjM0NDAwNS4xLjEuMTY5NjM0NTIyMi41MC4wLjA.");
+        est3.put("image",
+                "https://firebasestorage.googleapis.com/v0/b/fotos-proyecto-bfc34.appspot.com/o/Fotos%2FDuber%20%20Carmona-fotor-2023100393639.png?alt=media&token=eb0de2b9-41b8-4fd9-bb7e-3c2db9ac29a1&_gl=1*1s63mq7*_ga*MTQ5NTE1NzQ3Ni4xNjk2MzQ0MDA1*_ga_CW55HF8NVT*MTY5NjM0NDAwNS4xLjEuMTY5NjM0NTIyMi41MC4wLjA.");
         est3.put("name", "Duber Carmona");
 
         users.add(est1);
@@ -79,12 +92,21 @@ public class Grupo1View extends VerticalLayout {
 
         // Algoritmo1
         titulo1 = "Algoritmo 1";
-        titulo2 = "Calculadora Índice de Masa Corporal (IMC)";
+        titulo2 = "Calculadora Índice de Masa Corporal (IMC)\r\n" + //
+                "";
         descripcion = "El Índice de Masa Corporal (IMC) es una medida utilizada para evaluar si una persona tiene un peso saludable en relación con su altura. Se calcula dividiendo el peso de una persona en kilogramos por el cuadrado de su altura en metros. La fórmula básica del IMC es la siguiente:";
         gist = "<script src=\"https://gist.github.com/jfinfocesde/e2da562bb64be1b54f461de2cd5c001d.js\"></script>";
         replit = "https://replit.com/@jhonvalencia3/ProyectoPrueba";
         diagrama = "https://firebasestorage.googleapis.com/v0/b/cesde-7fe22.appspot.com/o/Proyecto%20Integrador%2FDiagrama.svg?alt=media&token=e04cad73-fd1c-4972-a571-da1389d04689";
         add(secciones.algoritmo(titulo1, titulo2, descripcion, algoritmo1(), gist, replit, diagrama));
+        titulo1 = "Algoritmo 2";
+        titulo2 = "Calculadora de calorías diaras\r\n" + //
+                "";
+        descripcion = "calculadora que ayuda a las personas a estimar la cantidad de calorías que deben consumir diariamente en función de su edad, género, nivel de actividad y objetivos de peso.";
+        gist = "<script src=\"https://gist.github.com/baldurt1992/6e01ff37ac313a4182b367b692fcc4b5.js\"></script>";
+        replit = "https://replit.com/@andresbaldur92/calculadoraCalorias";
+        diagrama = "https://firebasestorage.googleapis.com/v0/b/fotos-proyecto-bfc34.appspot.com/o/Untitled%20Workspace.jpg?alt=media&token=fb4adc9c-2ece-4fa1-9040-38cb655d7e9e&_gl=1*mqkbk4*_ga*MTY3NDMzNDI5NC4xNjk0NTQ2MzEz*_ga_CW55HF8NVT*MTY5Njg5NTk2NS4xNC4xLjE2OTY4OTYwMDIuMjMuMC4w";
+        add(secciones.algoritmo(titulo1, titulo2, descripcion, algoritmo2(), gist, replit, diagrama));
 
     }
 
@@ -135,6 +157,126 @@ public class Grupo1View extends VerticalLayout {
         hl.add(vl1);
         hl.add(vl2);
         return hl;
+
+    }
+
+    public HorizontalLayout algoritmo2() {
+
+        VerticalLayout vl1 = new VerticalLayout();
+        vl1.setAlignItems(Alignment.CENTER);
+        vl1.add(new Image(
+                "https://firebasestorage.googleapis.com/v0/b/fotos-proyecto-bfc34.appspot.com/o/CaloriasFinal-fotor-20231009122957.png?alt=media&token=453fada9-9ea5-4f24-9c73-473de707885b&_gl=1*8zkd8u*_ga*MTY3NDMzNDI5NC4xNjk0NTQ2MzEz*_ga_CW55HF8NVT*MTY5Njg3MjM3Ni4xMy4xLjE2OTY4NzI2MjguNDYuMC4w",
+                ""));
+
+        VerticalLayout vl2 = new VerticalLayout();
+        vl2.setAlignItems(Alignment.CENTER);
+
+        HorizontalLayout hl = new HorizontalLayout();
+        hl.setAlignItems(Alignment.CENTER);
+        hl.setWidthFull();
+
+        IntegerField edad = new IntegerField("Edad");
+        Button calcular = new Button("Calcular calorías");
+        H3 salida = new H3();
+
+        ComboBox<String> comboBoxObjeto = new ComboBox<>("Objetivo de peso");
+        comboBoxObjeto.setAllowCustomValue(true);
+        List<String> opcionesObjeto = Arrays.asList("Perder", "Mantener", "Ganar");
+        comboBoxObjeto.setItems(opcionesObjeto);
+
+        ComboBox<String> comboBoxGenero = new ComboBox<>("Género");
+        comboBoxGenero.setAllowCustomValue(true);
+        List<String> opcionesGenero = Arrays.asList("Hombre", "Mujer");
+        comboBoxGenero.setItems(opcionesGenero);
+
+        ComboBox<String> comboBoxNivel = new ComboBox<>("Nivel de actividad");
+        comboBoxNivel.setAllowCustomValue(true);
+        List<String> opcionesNivel = Arrays.asList("Sedentario", "Ligero", "Moderado", "Activo", "Muy activo");
+        comboBoxNivel.setItems(opcionesNivel);
+
+        calcular.addClickListener((ClickEvent<Button> event) -> {
+            int valoredad = edad.getValue();
+            String valorgenero = comboBoxGenero.getValue();
+            String valornivelActividad = comboBoxNivel.getValue();
+            String valorobjetivoPeso = comboBoxObjeto.getValue();
+
+            comboBoxGenero.setValue(valorgenero);
+            comboBoxNivel.setValue(valornivelActividad);
+            comboBoxObjeto.setValue(valorobjetivoPeso);
+
+            String genero;
+        while (true) {
+            System.out.print("Ingresa tu género (Hombre/Mujer): ");
+            genero = valorgenero.toLowerCase();
+            if (genero.equals("hombre") || genero.equals("mujer")) {
+                break; 
+            } else {
+                System.out.println("Error: Debes ingresar 'Hombre' o 'Mujer'.");
+            }
+        }
+
+            double factorActividad = 1.0;
+            switch (valornivelActividad.toLowerCase()) {
+                case "sedentario":
+                    factorActividad = 1.2;
+                    break;
+                case "ligero":
+                    factorActividad = 1.375;
+                    break;
+                case "moderado":
+                    factorActividad = 1.55;
+                    break;
+                case "activo":
+                    factorActividad = 1.725;
+                    break;
+                case "muy activo":
+                    factorActividad = 1.9;
+                    break;
+                default:
+                System.out.println("Nivel de actividad no válido. Se usará el valor por defecto (Moderado).");
+                factorActividad = 1.55;
+                break;
+            }
+
+            double tmb;
+            if (genero.equals("hombre")) {
+                tmb = 88.362 + (13.397 * valoredad);
+            } else {
+                tmb = 447.593 + (9.247 * valoredad);
+            }
+
+        double caloriasDiarias;
+        switch (valorobjetivoPeso.toLowerCase()) {
+            case "perder":
+                caloriasDiarias = tmb * factorActividad - 500; 
+                break;
+            case "mantener":
+                caloriasDiarias = tmb * factorActividad;
+                break;
+            case "ganar":
+                caloriasDiarias = tmb * factorActividad + 500; 
+                break;
+            default:
+                System.out.println("Objetivo de peso no válido. Se asumirá mantener el peso.");
+                caloriasDiarias = tmb * factorActividad;
+                break;
+        }
+        DecimalFormat formato = new DecimalFormat("0");
+        String caloriasFormateadas = formato.format(caloriasDiarias);
+        salida.setText("Las calorías que deberías consumir para " + valorobjetivoPeso.toLowerCase() + " peso son " + caloriasFormateadas + " calorías por día.");
+
+        });
+        vl2.add(new H3("Calculadora de calorías diarias"));
+        vl2.add(edad);
+        vl2.add(comboBoxGenero);
+        vl2.add(comboBoxNivel);
+        vl2.add(comboBoxObjeto);
+        vl2.add(calcular);
+        vl2.add(salida);
+        hl.add(vl1);
+        hl.add(vl2);
+        return hl;
+
     }
 
 }

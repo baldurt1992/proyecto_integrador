@@ -57,7 +57,7 @@ public class Grupo5View extends VerticalLayout {
         est1.put("image", "https://firebasestorage.googleapis.com/v0/b/fotos-proyecto-bfc34.appspot.com/o/Fotos%2Ffoto_CarlosAndresSanchez.png?alt=media&token=a711bcd0-88c1-408e-83b6-63eb603ceb5e&_gl=1*oxjj94*_ga*MTQ5NTE1NzQ3Ni4xNjk2MzQ0MDA1*_ga_CW55HF8NVT*MTY5NjM0NDAwNS4xLjEuMTY5NjM0NTg1Mi42MC4wLjA.");
         est1.put("name", "Carlos Andrés Sánchez Correa");
         Map<String, String> est2 = new HashMap<>();
-        est2.put("image", "https://cdn.iconscout.com/icon/free/png-512/free-avatar-369-456321.png?f=avif&w=256");
+        est2.put("image", "https://firebasestorage.googleapis.com/v0/b/fotos-proyecto-bfc34.appspot.com/o/Fotos%2Fnelson-fotor-20231009113544.png?alt=media&token=6c211e90-58b7-400e-ba06-b1fda5014114&_gl=1*6xghvl*_ga*MTY3NDMzNDI5NC4xNjk0NTQ2MzEz*_ga_CW55HF8NVT*MTY5Njg2ODg1NS4xMi4xLjE2OTY4NjkzNTguNTIuMC4w");
         est2.put("name", "Nelson Enrique Fonnegra Osorio");
         Map<String, String> est3 = new HashMap<>();
         est3.put("image", "https://firebasestorage.googleapis.com/v0/b/fotos-proyecto-bfc34.appspot.com/o/Fotos%2Ffoto%20jhonny-fotor-2023100393147.png?alt=media&token=d6c1bd57-bc38-48a0-b5a7-e312361ec4b3&_gl=1*144zqsu*_ga*MTQ5NTE1NzQ3Ni4xNjk2MzQ0MDA1*_ga_CW55HF8NVT*MTY5NjM0NDAwNS4xLjEuMTY5NjM0NTkwOS4zLjAuMA..");

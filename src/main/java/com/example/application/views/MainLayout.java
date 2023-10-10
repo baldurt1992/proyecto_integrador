@@ -9,7 +9,6 @@ import com.example.application.views.grupo6.Grupo6View;
 import com.example.application.views.grupo7.Grupo7View;
 import com.example.application.views.grupo8.Grupo8View;
 import com.example.application.views.grupo9.Grupo9View;
-import com.example.application.views.grupo10.Grupo10View;
 
 import com.example.application.views.inicio.InicioView;
 import com.vaadin.flow.component.AttachEvent;
@@ -75,7 +74,6 @@ public class MainLayout extends AppLayout {
         nav.addItem(new SideNavItem("Grupo 7", Grupo7View.class, LineAwesomeIcon.CHEVRON_CIRCLE_RIGHT_SOLID.create()));
         nav.addItem(new SideNavItem("Grupo 8", Grupo8View.class, LineAwesomeIcon.CHEVRON_CIRCLE_RIGHT_SOLID.create()));
         nav.addItem(new SideNavItem("Grupo 9", Grupo9View.class, LineAwesomeIcon.CHEVRON_CIRCLE_RIGHT_SOLID.create()));
-        nav.addItem(new SideNavItem("Grupo 10", Grupo10View.class, LineAwesomeIcon.CHEVRON_CIRCLE_RIGHT_SOLID.create()));
 
         return nav;
     }
