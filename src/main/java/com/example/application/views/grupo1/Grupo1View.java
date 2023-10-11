@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.Map;
 import java.text.DecimalFormat;
 
-
 import org.atmosphere.util.StringFilterAggregator;
 
 import com.example.application.views.MainLayout;
@@ -92,75 +91,27 @@ public class Grupo1View extends VerticalLayout {
 
         // Algoritmo1
         titulo1 = "Algoritmo 1";
-        titulo2 = "Calculadora Índice de Masa Corporal (IMC)\r\n" + //
-                "";
-        descripcion = "El Índice de Masa Corporal (IMC) es una medida utilizada para evaluar si una persona tiene un peso saludable en relación con su altura. Se calcula dividiendo el peso de una persona en kilogramos por el cuadrado de su altura en metros. La fórmula básica del IMC es la siguiente:";
-        gist = "<script src=\"https://gist.github.com/jfinfocesde/e2da562bb64be1b54f461de2cd5c001d.js\"></script>";
-        replit = "https://replit.com/@jhonvalencia3/ProyectoPrueba";
-        diagrama = "https://firebasestorage.googleapis.com/v0/b/cesde-7fe22.appspot.com/o/Proyecto%20Integrador%2FDiagrama.svg?alt=media&token=e04cad73-fd1c-4972-a571-da1389d04689";
-        add(secciones.algoritmo(titulo1, titulo2, descripcion, algoritmo1(), gist, replit, diagrama));
-        titulo1 = "Algoritmo 2";
         titulo2 = "Calculadora de calorías diaras\r\n" + //
                 "";
         descripcion = "Calculadora que ayuda a las personas a estimar la cantidad de calorías que deben consumir diariamente en función de su edad, género, nivel de actividad y objetivos de peso.";
         gist = "<script src=\"https://gist.github.com/baldurt1992/6e01ff37ac313a4182b367b692fcc4b5.js\"></script>";
         replit = "https://replit.com/@andresbaldur92/calculadoraCalorias";
-        diagrama = "https://firebasestorage.googleapis.com/v0/b/fotos-proyecto-bfc34.appspot.com/o/Untitled%20Workspace.jpg?alt=media&token=fb4adc9c-2ece-4fa1-9040-38cb655d7e9e&_gl=1*mqkbk4*_ga*MTY3NDMzNDI5NC4xNjk0NTQ2MzEz*_ga_CW55HF8NVT*MTY5Njg5NTk2NS4xNC4xLjE2OTY4OTYwMDIuMjMuMC4w";
+        diagrama = "https://firebasestorage.googleapis.com/v0/b/fotos-proyecto-bfc34.appspot.com/o/Untitled%20Workspace%20(1).jpg?alt=media&token=778ebe06-5170-41f1-bffa-e7f6346d6a5f&_gl=1*64lald*_ga*MTY3NDMzNDI5NC4xNjk0NTQ2MzEz*_ga_CW55HF8NVT*MTY5NzA1NjQxOS4xNi4xLjE2OTcwNTY0NDguMzEuMC4w";
+        add(secciones.algoritmo(titulo1, titulo2, descripcion, algoritmo1(), gist, replit, diagrama));
+
+        // Algoritmo2
+        titulo1 = "Algoritmo 2";
+        titulo2 = "Cálculo de Zona de Ritmo Cardíaco Objetivo\r\n" + //
+                "";
+        descripcion = "Calculadora que permite calcular la ZCO(zona cardiaca objetivo). Basados en la edad se determinan las pulsaciones por minuto de la persona y se calcula su frecuencia cardiaca objetivo";
+        gist = "<script src=\"https://gist.github.com/baldurt1992/6e01ff37ac313a4182b367b692fcc4b5.js\"></script>";
+        replit = "https://replit.com/@andresbaldur92/calculadoraCalorias";
+        diagrama = "https://firebasestorage.googleapis.com/v0/b/fotos-proyecto-bfc34.appspot.com/o/Untitled%20Workspace%20(1).jpg?alt=media&token=778ebe06-5170-41f1-bffa-e7f6346d6a5f&_gl=1*64lald*_ga*MTY3NDMzNDI5NC4xNjk0NTQ2MzEz*_ga_CW55HF8NVT*MTY5NzA1NjQxOS4xNi4xLjE2OTcwNTY0NDguMzEuMC4w";
         add(secciones.algoritmo(titulo1, titulo2, descripcion, algoritmo2(), gist, replit, diagrama));
 
     }
 
     public HorizontalLayout algoritmo1() {
-
-        VerticalLayout vl1 = new VerticalLayout();
-        vl1.setAlignItems(Alignment.CENTER);
-        vl1.add(new Image("https://static.tuasaude.com/media/article/me/dr/imc_15748_l.jpg", ""));
-
-        VerticalLayout vl2 = new VerticalLayout();
-        vl2.setAlignItems(Alignment.CENTER);
-
-        HorizontalLayout hl = new HorizontalLayout();
-        hl.setAlignItems(Alignment.CENTER);
-        hl.setWidthFull();
-
-        NumberField peso = new NumberField("Peso (kg)");
-        NumberField altura = new NumberField("Altura (m)");
-        Button calcular = new Button("Calcular IMC");
-        H3 salida = new H3();
-
-        calcular.addClickListener(event -> {
-            double valorPeso = peso.getValue();
-            double valorAltura = altura.getValue();
-            double imc = valorPeso / Math.pow(valorAltura, 2);
-            String info = "";
-            if (imc < 18.5) {
-                info = "Bajo peso";
-            } else if (imc >= 18.5 && imc < 24.9) {
-                info = "Peso saludable";
-            } else if (imc >= 25.0 && imc < 29.9) {
-                info = "Sobrepeso";
-            } else if (imc >= 30.0 && imc < 34.9) {
-                info = "Obesidad Clase 1";
-            } else if (imc >= 35.0 && imc < 39.9) {
-                info = "Obesidad Clase 2";
-            } else {
-                info = "Obesidad Clase 3";
-            }
-            String numeroFormateado = String.format("%.2f", imc);
-            salida.setText(String.valueOf(numeroFormateado + ", " + info));
-        });
-        vl2.add(new H3("Calculadora Índice de Masa Corporal (IMC)"));
-        vl2.add(peso);
-        vl2.add(altura);
-        vl2.add(calcular);
-        vl2.add(salida);
-        hl.add(vl1);
-        hl.add(vl2);
-        return hl;
-
-    }
-
-    public HorizontalLayout algoritmo2() {
 
         VerticalLayout vl1 = new VerticalLayout();
         vl1.setAlignItems(Alignment.CENTER);
@@ -205,15 +156,15 @@ public class Grupo1View extends VerticalLayout {
             comboBoxObjeto.setValue(valorobjetivoPeso);
 
             String genero;
-        while (true) {
-            System.out.print("Ingresa tu género (Hombre/Mujer): ");
-            genero = valorgenero.toLowerCase();
-            if (genero.equals("hombre") || genero.equals("mujer")) {
-                break; 
-            } else {
-                System.out.println("Error: Debes ingresar 'Hombre' o 'Mujer'.");
+            while (true) {
+                System.out.print("Ingresa tu género (Hombre/Mujer): ");
+                genero = valorgenero.toLowerCase();
+                if (genero.equals("hombre") || genero.equals("mujer")) {
+                    break;
+                } else {
+                    System.out.println("Error: Debes ingresar 'Hombre' o 'Mujer'.");
+                }
             }
-        }
 
             double factorActividad = 1.0;
             switch (valornivelActividad.toLowerCase()) {
@@ -233,9 +184,9 @@ public class Grupo1View extends VerticalLayout {
                     factorActividad = 1.9;
                     break;
                 default:
-                System.out.println("Nivel de actividad no válido. Se usará el valor por defecto (Moderado).");
-                factorActividad = 1.55;
-                break;
+                    System.out.println("Nivel de actividad no válido. Se usará el valor por defecto (Moderado).");
+                    factorActividad = 1.55;
+                    break;
             }
 
             double tmb;
@@ -245,25 +196,26 @@ public class Grupo1View extends VerticalLayout {
                 tmb = 447.593 + (9.247 * valoredad);
             }
 
-        double caloriasDiarias;
-        switch (valorobjetivoPeso.toLowerCase()) {
-            case "perder":
-                caloriasDiarias = tmb * factorActividad - 500; 
-                break;
-            case "mantener":
-                caloriasDiarias = tmb * factorActividad;
-                break;
-            case "ganar":
-                caloriasDiarias = tmb * factorActividad + 500; 
-                break;
-            default:
-                System.out.println("Objetivo de peso no válido. Se asumirá mantener el peso.");
-                caloriasDiarias = tmb * factorActividad;
-                break;
-        }
-        DecimalFormat formato = new DecimalFormat("0");
-        String caloriasFormateadas = formato.format(caloriasDiarias);
-        salida.setText("Las calorías que deberías consumir para " + valorobjetivoPeso.toLowerCase() + " peso son " + caloriasFormateadas + " calorías por día.");
+            double caloriasDiarias;
+            switch (valorobjetivoPeso.toLowerCase()) {
+                case "perder":
+                    caloriasDiarias = tmb * factorActividad - 500;
+                    break;
+                case "mantener":
+                    caloriasDiarias = tmb * factorActividad;
+                    break;
+                case "ganar":
+                    caloriasDiarias = tmb * factorActividad + 500;
+                    break;
+                default:
+                    System.out.println("Objetivo de peso no válido. Se asumirá mantener el peso.");
+                    caloriasDiarias = tmb * factorActividad;
+                    break;
+            }
+            DecimalFormat formato = new DecimalFormat("0");
+            String caloriasFormateadas = formato.format(caloriasDiarias);
+            salida.setText("Las calorías que deberías consumir para " + valorobjetivoPeso.toLowerCase() + " peso son "
+                    + caloriasFormateadas + " calorías por día.");
 
         });
         vl2.add(new H3("Calculadora de calorías diarias"));
@@ -271,6 +223,68 @@ public class Grupo1View extends VerticalLayout {
         vl2.add(comboBoxGenero);
         vl2.add(comboBoxNivel);
         vl2.add(comboBoxObjeto);
+        vl2.add(calcular);
+        vl2.add(salida);
+        hl.add(vl1);
+        hl.add(vl2);
+        return hl;
+
+    }
+
+    public HorizontalLayout algoritmo2() {
+
+        VerticalLayout vl1 = new VerticalLayout();
+        vl1.setAlignItems(Alignment.CENTER);
+        vl1.add(new Image(
+                "https://firebasestorage.googleapis.com/v0/b/fotos-proyecto-bfc34.appspot.com/o/CaloriasFinal-fotor-20231009122957.png?alt=media&token=453fada9-9ea5-4f24-9c73-473de707885b&_gl=1*8zkd8u*_ga*MTY3NDMzNDI5NC4xNjk0NTQ2MzEz*_ga_CW55HF8NVT*MTY5Njg3MjM3Ni4xMy4xLjE2OTY4NzI2MjguNDYuMC4w",
+                ""));
+
+        VerticalLayout vl2 = new VerticalLayout();
+        vl2.setAlignItems(Alignment.CENTER);
+
+        HorizontalLayout hl = new HorizontalLayout();
+        hl.setAlignItems(Alignment.CENTER);
+        hl.setWidthFull();
+
+        IntegerField edad = new IntegerField("Edad");
+        TextField fcm = new TextField("FCM");
+        fcm.setReadOnly(true);
+        TextField zomax = new TextField("Zona máxima");
+        zomax.setReadOnly(true);
+        TextField zomin = new TextField("Zona mímina");
+        zomin.setReadOnly(true);
+        Button calcular = new Button("Calcular ZCO");
+        H3 salida = new H3();
+
+        edad.addValueChangeListener(event -> {
+            Integer edadIngresada = event.getValue();
+            if (edadIngresada != null) {
+                int fcmCalculada = 220 - edadIngresada;
+                fcm.setValue(Integer.toString(fcmCalculada));
+
+                if (zomax.getValue() != null) {
+                    int zonaMaximaCalculada = (int) (fcmCalculada * 0.85);
+                    zomax.setValue(Integer.toString(zonaMaximaCalculada));
+                }
+                if (zomin.getValue() != null) {
+                    int zonaminimacalculada = (int) (fcmCalculada * 0.5);
+                    zomin.setValue(Integer.toString(zonaminimacalculada));
+                }
+            }
+        });
+        salida.setText(
+                "Tu zona de ritmo cardiaco objetivo máxima es de " + zonaMaximaCalculada + ", tu zona mínima es "
+                        + zonaminimacalculada);
+        salida.setText(
+                "Si estás realizando ejercicio moderado te recomendamos mantener tus pulsaciones máximo en: "
+                        + zonaminimacalculada);
+        salida.setText(
+                "Si estás realizando ejercicio vigoroso te recomendamos mantener tus pulsaciones máximo en: "
+                        + zonaMaximaCalculada);
+
+        vl2.add(new H3("Cálculo de Zona de Ritmo Cardíaco Objetivo"));
+        vl2.add(edad);
+        vl2.add(edad, calcular, fcm, zomax, zomin);
         vl2.add(calcular);
         vl2.add(salida);
         hl.add(vl1);
