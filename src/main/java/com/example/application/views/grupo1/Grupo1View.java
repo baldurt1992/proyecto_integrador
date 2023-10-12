@@ -113,7 +113,7 @@ public class Grupo1View extends VerticalLayout {
         titulo1 = "Algoritmo 3";
         titulo2 = "Test de Burpees\r\n" + //
                 "";
-        descripcion = "Este test que evalua el estado físico de una persona, dependiendo de la cantidad de repeticiones de Burpees que logra realizar.";
+        descripcion = "Este test evalua el estado físico de una persona dependiendo de la cantidad de repeticiones de Burpees que logra realizar.";
         gist = "<script src=\"https://gist.github.com/baldurt1992/6e01ff37ac313a4182b367b692fcc4b5.js\"></script>";
         replit = "https://replit.com/@andresbaldur92/calculadoraCalorias";
         diagrama = "https://firebasestorage.googleapis.com/v0/b/fotos-proyecto-bfc34.appspot.com/o/Untitled%20Workspace%20(1).jpg?alt=media&token=778ebe06-5170-41f1-bffa-e7f6346d6a5f&_gl=1*64lald*_ga*MTY3NDMzNDI5NC4xNjk0NTQ2MzEz*_ga_CW55HF8NVT*MTY5NzA1NjQxOS4xNi4xLjE2OTcwNTY0NDguMzEuMC4w";
@@ -305,12 +305,14 @@ public class Grupo1View extends VerticalLayout {
 
     }
 
+
+    String estado = "";
     public HorizontalLayout algoritmo3() {
 
         VerticalLayout vl1 = new VerticalLayout();
         vl1.setAlignItems(Alignment.CENTER);
         vl1.add(new Image(
-                "https://firebasestorage.googleapis.com/v0/b/fotos-proyecto-bfc34.appspot.com/o/CORAZON-fotor-2023101285820.jpg?alt=media&token=8591e994-8599-4830-8ce6-a17cbba8b6ee&_gl=1*t1fhmh*_ga*MTQ5NTE1NzQ3Ni4xNjk2MzQ0MDA1*_ga_CW55HF8NVT*MTY5NzExOTI2MC4yLjEuMTY5NzEyMDA2NC40MC4wLjA.",
+                "https://firebasestorage.googleapis.com/v0/b/fotos-proyecto-bfc34.appspot.com/o/beneficios-burpees-fotor-20231012102031.jpg?alt=media&token=d34731e0-9410-402c-9a8c-cb4215c25bc4&_gl=1*ahyw9p*_ga*MTQ5NTE1NzQ3Ni4xNjk2MzQ0MDA1*_ga_CW55HF8NVT*MTY5NzEyNDAzOC4zLjEuMTY5NzEyNDA0OS40OS4wLjA.",
                 ""));
 
         VerticalLayout vl2 = new VerticalLayout();
@@ -324,15 +326,58 @@ public class Grupo1View extends VerticalLayout {
         comboBoxGenero.setAllowCustomValue(true);
         List<String> opcionesGenero = Arrays.asList("Hombre", "Mujer");
         comboBoxGenero.setItems(opcionesGenero);
-        NumberField burpeesrealizados = new NumberField("Ingresa las repeticiones");
+        IntegerField burpeesrealizados = new IntegerField("Ingresa las repeticiones");
         Button calcular = new Button("Calcular estado físico");
         H3 salida = new H3();
 
+        
+        
+        calcular.addClickListener((ClickEvent<Button> event)-> {
+            String valorGenero = comboBoxGenero.getValue();
+            int valorRepeticiones = burpeesrealizados.getValue();
+            
+            if (valorGenero.equalsIgnoreCase("hombre")) {
+                if (valorRepeticiones < 25) {
+                    estado = "malo";
+                } else if (valorRepeticiones >= 25 && valorRepeticiones <= 35) {
+                   estado = "normal";
+                } else if (valorRepeticiones >= 35 && valorRepeticiones <= 45) {
+                   estado = "bueno";
+                } else if (valorRepeticiones >= 45 && valorRepeticiones <= 55) {
+                   estado = "muy bueno";
+                } else {
+                   estado = "excelente";
+                }
+             } else if (valorGenero.equalsIgnoreCase("mujer")) {
+                if (valorRepeticiones < 25) {
+                   estado = "malo";
+                } else if (valorRepeticiones >= 20 && valorRepeticiones <= 30) {
+                   estado = "normal";
+                } else if (valorRepeticiones >= 30 && valorRepeticiones <= 40) {
+                   estado = "bueno";
+                } else if (valorRepeticiones >= 40 && valorRepeticiones <= 50) {
+                   estado = "muy bueno";
+                } else {
+                   estado = "excelente";
+                }
+             } else {
+                estado = null; 
+             }     
+             
+        salida.setText("Haz realizado " + valorRepeticiones + " repeticiones. " + "Tu estado físico es " + estado + ".");
+
+         });
+
+        
+
+
+        
 
 
 
 
-        vl2.add(new H3("Cálculo de Zona de Ritmo Cardíaco Objetivo"));
+
+        vl2.add(new H3("Test de Burpees"));
         vl2.add(comboBoxGenero);
         vl2.add(burpeesrealizados);
         vl2.add(calcular);
