@@ -334,7 +334,7 @@ public class Grupo1View extends VerticalLayout {
 
         vl2.add(new H3("Cálculo de Zona de Ritmo Cardíaco Objetivo"));
         vl2.add(comboBoxGenero);
-        vl2.add(bur);
+        vl2.add(burpeesrealizados);
         vl2.add(calcular);
         vl2.add(salida);
         hl.add(vl1);
