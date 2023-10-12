@@ -96,7 +96,7 @@ public class Grupo1View extends VerticalLayout {
         descripcion = "Calculadora que ayuda a las personas a estimar la cantidad de calorías que deben consumir diariamente en función de su edad, género, nivel de actividad y objetivos de peso.";
         gist = "<script src=\"https://gist.github.com/baldurt1992/6e01ff37ac313a4182b367b692fcc4b5.js\"></script>";
         replit = "https://replit.com/@andresbaldur92/calculadoraCalorias";
-        diagrama = "https://firebasestorage.googleapis.com/v0/b/fotos-proyecto-bfc34.appspot.com/o/Untitled%20Workspace%20(1).jpg?alt=media&token=778ebe06-5170-41f1-bffa-e7f6346d6a5f&_gl=1*64lald*_ga*MTY3NDMzNDI5NC4xNjk0NTQ2MzEz*_ga_CW55HF8NVT*MTY5NzA1NjQxOS4xNi4xLjE2OTcwNTY0NDguMzEuMC4w";
+        diagrama = "https://firebasestorage.googleapis.com/v0/b/fotos-proyecto-bfc34.appspot.com/o/Se%20solicita%20al%20usuario%20que%20ingrese%20su%20edad%20(2)%20(2).jpg?alt=media&token=459aa44c-0e7a-40af-a381-53ef12a9197f&_gl=1*1d49id9*_ga*MTY3NDMzNDI5NC4xNjk0NTQ2MzEz*_ga_CW55HF8NVT*MTY5NzEzOTQxOC4xOS4xLjE2OTcxMzk5MDcuNTIuMC4w";
         add(secciones.algoritmo(titulo1, titulo2, descripcion, algoritmo1(), gist, replit, diagrama));
 
         // Algoritmo2
@@ -104,9 +104,9 @@ public class Grupo1View extends VerticalLayout {
         titulo2 = "Cálculo de Zona de Ritmo Cardíaco Objetivo\r\n" + //
                 "";
         descripcion = "Calculadora que permite calcular la ZCO(zona cardiaca objetivo). Basados en la edad se determinan las pulsaciones por minuto de la persona y se calcula su frecuencia cardiaca objetivo";
-        gist = "<script src=\"https://gist.github.com/baldurt1992/6e01ff37ac313a4182b367b692fcc4b5.js\"></script>";
-        replit = "https://replit.com/@andresbaldur92/calculadoraCalorias";
-        diagrama = "https://firebasestorage.googleapis.com/v0/b/fotos-proyecto-bfc34.appspot.com/o/Untitled%20Workspace%20(1).jpg?alt=media&token=778ebe06-5170-41f1-bffa-e7f6346d6a5f&_gl=1*64lald*_ga*MTY3NDMzNDI5NC4xNjk0NTQ2MzEz*_ga_CW55HF8NVT*MTY5NzA1NjQxOS4xNi4xLjE2OTcwNTY0NDguMzEuMC4w";
+        gist = "<script src=\"https://gist.github.com/baldurt1992/8b072151a524da08ca8d34f6c5dd4dae.js\"></script>";
+        replit = "https://replit.com/@andresbaldur92/HRmax";
+        diagrama = "https://firebasestorage.googleapis.com/v0/b/fotos-proyecto-bfc34.appspot.com/o/Beige%20Colorful%20Minimal%20Flowchart%20Infographic%20Graph.jpg?alt=media&token=0c637801-37e3-4098-a301-d4488a478a86&_gl=1*1fdj6v9*_ga*MTY3NDMzNDI5NC4xNjk0NTQ2MzEz*_ga_CW55HF8NVT*MTY5NzEzNTE3My4xOC4xLjE2OTcxMzUxODEuNTIuMC4w";
         add(secciones.algoritmo(titulo1, titulo2, descripcion, algoritmo2(), gist, replit, diagrama));
 
         // Algoritmo3
@@ -114,9 +114,9 @@ public class Grupo1View extends VerticalLayout {
         titulo2 = "Test de Burpees\r\n" + //
                 "";
         descripcion = "Este test evalua el estado físico de una persona dependiendo de la cantidad de repeticiones de Burpees que logra realizar.";
-        gist = "<script src=\"https://gist.github.com/baldurt1992/6e01ff37ac313a4182b367b692fcc4b5.js\"></script>";
-        replit = "https://replit.com/@andresbaldur92/calculadoraCalorias";
-        diagrama = "https://firebasestorage.googleapis.com/v0/b/fotos-proyecto-bfc34.appspot.com/o/Untitled%20Workspace%20(1).jpg?alt=media&token=778ebe06-5170-41f1-bffa-e7f6346d6a5f&_gl=1*64lald*_ga*MTY3NDMzNDI5NC4xNjk0NTQ2MzEz*_ga_CW55HF8NVT*MTY5NzA1NjQxOS4xNi4xLjE2OTcwNTY0NDguMzEuMC4w";
+        gist = "<script src=\"https://gist.github.com/Edisonmo30/429b73339df200672efb2ef5feb834ff.js\"></script>";
+        replit = "https://replit.com/@EdisonMartinez2/Burpeesjava";
+        diagrama = "https://firebasestorage.googleapis.com/v0/b/fotos-proyecto-bfc34.appspot.com/o/Beige%20Colorful%20Minimal%20Flowchart%20Infographic%20Graph%20(2).jpg?alt=media&token=c580adca-19f7-410f-8acb-18dfbf65966b&_gl=1*1082zd1*_ga*MTY3NDMzNDI5NC4xNjk0NTQ2MzEz*_ga_CW55HF8NVT*MTY5NzEzNTE3My4xOC4xLjE2OTcxMzY4ODguNTAuMC4w";
         add(secciones.algoritmo(titulo1, titulo2, descripcion, algoritmo3(), gist, replit, diagrama));
 
     }
@@ -305,8 +305,8 @@ public class Grupo1View extends VerticalLayout {
 
     }
 
-
     String estado = "";
+
     public HorizontalLayout algoritmo3() {
 
         VerticalLayout vl1 = new VerticalLayout();
@@ -330,52 +330,42 @@ public class Grupo1View extends VerticalLayout {
         Button calcular = new Button("Calcular estado físico");
         H3 salida = new H3();
 
-        
-        
-        calcular.addClickListener((ClickEvent<Button> event)-> {
+        calcular.addClickListener((ClickEvent<Button> event) -> {
             String valorGenero = comboBoxGenero.getValue();
             int valorRepeticiones = burpeesrealizados.getValue();
-            
+
             if (valorGenero.equalsIgnoreCase("hombre")) {
                 if (valorRepeticiones < 25) {
                     estado = "malo";
                 } else if (valorRepeticiones >= 25 && valorRepeticiones <= 35) {
-                   estado = "normal";
+                    estado = "normal";
                 } else if (valorRepeticiones >= 35 && valorRepeticiones <= 45) {
-                   estado = "bueno";
+                    estado = "bueno";
                 } else if (valorRepeticiones >= 45 && valorRepeticiones <= 55) {
-                   estado = "muy bueno";
+                    estado = "muy bueno";
                 } else {
-                   estado = "excelente";
+                    estado = "excelente";
                 }
-             } else if (valorGenero.equalsIgnoreCase("mujer")) {
+            } else if (valorGenero.equalsIgnoreCase("mujer")) {
                 if (valorRepeticiones < 25) {
-                   estado = "malo";
+                    estado = "malo";
                 } else if (valorRepeticiones >= 20 && valorRepeticiones <= 30) {
-                   estado = "normal";
+                    estado = "normal";
                 } else if (valorRepeticiones >= 30 && valorRepeticiones <= 40) {
-                   estado = "bueno";
+                    estado = "bueno";
                 } else if (valorRepeticiones >= 40 && valorRepeticiones <= 50) {
-                   estado = "muy bueno";
+                    estado = "muy bueno";
                 } else {
-                   estado = "excelente";
+                    estado = "excelente";
                 }
-             } else {
-                estado = null; 
-             }     
-             
-        salida.setText("Haz realizado " + valorRepeticiones + " repeticiones. " + "Tu estado físico es " + estado + ".");
+            } else {
+                estado = null;
+            }
 
-         });
+            salida.setText(
+                    "Haz realizado " + valorRepeticiones + " repeticiones. " + "Tu estado físico es " + estado + ".");
 
-        
-
-
-        
-
-
-
-
+        });
 
         vl2.add(new H3("Test de Burpees"));
         vl2.add(comboBoxGenero);
