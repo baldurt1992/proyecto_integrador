@@ -109,6 +109,16 @@ public class Grupo1View extends VerticalLayout {
         diagrama = "https://firebasestorage.googleapis.com/v0/b/fotos-proyecto-bfc34.appspot.com/o/Untitled%20Workspace%20(1).jpg?alt=media&token=778ebe06-5170-41f1-bffa-e7f6346d6a5f&_gl=1*64lald*_ga*MTY3NDMzNDI5NC4xNjk0NTQ2MzEz*_ga_CW55HF8NVT*MTY5NzA1NjQxOS4xNi4xLjE2OTcwNTY0NDguMzEuMC4w";
         add(secciones.algoritmo(titulo1, titulo2, descripcion, algoritmo2(), gist, replit, diagrama));
 
+        // Algoritmo3
+        titulo1 = "Algoritmo 3";
+        titulo2 = "Test de Burpees\r\n" + //
+                "";
+        descripcion = "Este test que evalua el estado físico de una persona, dependiendo de la cantidad de repeticiones de Burpees que logra realizar.";
+        gist = "<script src=\"https://gist.github.com/baldurt1992/6e01ff37ac313a4182b367b692fcc4b5.js\"></script>";
+        replit = "https://replit.com/@andresbaldur92/calculadoraCalorias";
+        diagrama = "https://firebasestorage.googleapis.com/v0/b/fotos-proyecto-bfc34.appspot.com/o/Untitled%20Workspace%20(1).jpg?alt=media&token=778ebe06-5170-41f1-bffa-e7f6346d6a5f&_gl=1*64lald*_ga*MTY3NDMzNDI5NC4xNjk0NTQ2MzEz*_ga_CW55HF8NVT*MTY5NzA1NjQxOS4xNi4xLjE2OTcwNTY0NDguMzEuMC4w";
+        add(secciones.algoritmo(titulo1, titulo2, descripcion, algoritmo3(), gist, replit, diagrama));
+
     }
 
     public HorizontalLayout algoritmo1() {
@@ -231,12 +241,15 @@ public class Grupo1View extends VerticalLayout {
 
     }
 
+    int zonaMaximaCalculada = 0;
+    int zonaminimacalculada = 0;
+
     public HorizontalLayout algoritmo2() {
 
         VerticalLayout vl1 = new VerticalLayout();
         vl1.setAlignItems(Alignment.CENTER);
         vl1.add(new Image(
-                "https://firebasestorage.googleapis.com/v0/b/fotos-proyecto-bfc34.appspot.com/o/CaloriasFinal-fotor-20231009122957.png?alt=media&token=453fada9-9ea5-4f24-9c73-473de707885b&_gl=1*8zkd8u*_ga*MTY3NDMzNDI5NC4xNjk0NTQ2MzEz*_ga_CW55HF8NVT*MTY5Njg3MjM3Ni4xMy4xLjE2OTY4NzI2MjguNDYuMC4w",
+                "https://firebasestorage.googleapis.com/v0/b/fotos-proyecto-bfc34.appspot.com/o/CORAZON-fotor-2023101285820.jpg?alt=media&token=8591e994-8599-4830-8ce6-a17cbba8b6ee&_gl=1*t1fhmh*_ga*MTQ5NTE1NzQ3Ni4xNjk2MzQ0MDA1*_ga_CW55HF8NVT*MTY5NzExOTI2MC4yLjEuMTY5NzEyMDA2NC40MC4wLjA.",
                 ""));
 
         VerticalLayout vl2 = new VerticalLayout();
@@ -263,28 +276,65 @@ public class Grupo1View extends VerticalLayout {
                 fcm.setValue(Integer.toString(fcmCalculada));
 
                 if (zomax.getValue() != null) {
-                    int zonaMaximaCalculada = (int) (fcmCalculada * 0.85);
+                    zonaMaximaCalculada = (int) (fcmCalculada * 0.85);
                     zomax.setValue(Integer.toString(zonaMaximaCalculada));
                 }
                 if (zomin.getValue() != null) {
-                    int zonaminimacalculada = (int) (fcmCalculada * 0.5);
+                    zonaminimacalculada = (int) (fcmCalculada * 0.5);
                     zomin.setValue(Integer.toString(zonaminimacalculada));
                 }
             }
+            salida.setText(
+                    "Tu zona de ritmo cardiaco objetivo máxima es de " + zonaMaximaCalculada + " lpm"
+                            + ", tu zona mínima es de "
+                            + zonaminimacalculada + " lpm."
+                            + " si estás realizando ejercicio moderado, te recomendamos mantener tus pulsaciones máximo en "
+                            + zonaminimacalculada + " lpm,"
+                            + " si estás realizando ejercicio vigoroso, te recomendamos mantener tus pulsaciones máximo en "
+                            + zonaMaximaCalculada + " lpm.");
         });
-        salida.setText(
-                "Tu zona de ritmo cardiaco objetivo máxima es de " + zonaMaximaCalculada + ", tu zona mínima es "
-                        + zonaminimacalculada);
-        salida.setText(
-                "Si estás realizando ejercicio moderado te recomendamos mantener tus pulsaciones máximo en: "
-                        + zonaminimacalculada);
-        salida.setText(
-                "Si estás realizando ejercicio vigoroso te recomendamos mantener tus pulsaciones máximo en: "
-                        + zonaMaximaCalculada);
 
         vl2.add(new H3("Cálculo de Zona de Ritmo Cardíaco Objetivo"));
         vl2.add(edad);
         vl2.add(edad, calcular, fcm, zomax, zomin);
+        vl2.add(calcular);
+        vl2.add(salida);
+        hl.add(vl1);
+        hl.add(vl2);
+        return hl;
+
+    }
+
+    public HorizontalLayout algoritmo3() {
+
+        VerticalLayout vl1 = new VerticalLayout();
+        vl1.setAlignItems(Alignment.CENTER);
+        vl1.add(new Image(
+                "https://firebasestorage.googleapis.com/v0/b/fotos-proyecto-bfc34.appspot.com/o/CORAZON-fotor-2023101285820.jpg?alt=media&token=8591e994-8599-4830-8ce6-a17cbba8b6ee&_gl=1*t1fhmh*_ga*MTQ5NTE1NzQ3Ni4xNjk2MzQ0MDA1*_ga_CW55HF8NVT*MTY5NzExOTI2MC4yLjEuMTY5NzEyMDA2NC40MC4wLjA.",
+                ""));
+
+        VerticalLayout vl2 = new VerticalLayout();
+        vl2.setAlignItems(Alignment.CENTER);
+
+        HorizontalLayout hl = new HorizontalLayout();
+        hl.setAlignItems(Alignment.CENTER);
+        hl.setWidthFull();
+
+        ComboBox<String> comboBoxGenero = new ComboBox<>("Selecciona tu género");
+        comboBoxGenero.setAllowCustomValue(true);
+        List<String> opcionesGenero = Arrays.asList("Hombre", "Mujer");
+        comboBoxGenero.setItems(opcionesGenero);
+        NumberField burpeesrealizados = new NumberField("Ingresa las repeticiones");
+        Button calcular = new Button("Calcular estado físico");
+        H3 salida = new H3();
+
+
+
+
+
+        vl2.add(new H3("Cálculo de Zona de Ritmo Cardíaco Objetivo"));
+        vl2.add(comboBoxGenero);
+        vl2.add(bur);
         vl2.add(calcular);
         vl2.add(salida);
         hl.add(vl1);
