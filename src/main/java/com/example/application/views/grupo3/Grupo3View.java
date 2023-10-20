@@ -3,6 +3,7 @@ package com.example.application.views.grupo3;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 import com.example.application.views.MainLayout;
 import com.example.application.views.Secciones;
@@ -15,6 +16,7 @@ import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.NumberField;
+import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
@@ -132,3 +134,5 @@ public class Grupo3View extends VerticalLayout {
     }
 
 }
+
+

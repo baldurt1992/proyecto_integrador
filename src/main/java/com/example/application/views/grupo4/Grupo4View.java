@@ -3,6 +3,7 @@ package com.example.application.views.grupo4;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 import com.example.application.views.MainLayout;
 import com.example.application.views.Secciones;
@@ -12,11 +13,14 @@ import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.html.H3;
 import com.vaadin.flow.component.html.Hr;
 import com.vaadin.flow.component.html.Image;
+import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.NumberField;
+import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
+import com.vaadin.flow.component.notification.Notification;
 
 @PageTitle("Grupo 4")
 @Route(value = "grupo-4", layout = MainLayout.class)
@@ -73,59 +77,69 @@ public class Grupo4View extends VerticalLayout {
 
         // Algoritmo1
         titulo1 = "Algoritmo 1";
-        titulo2 = "Calculadora Índice de Masa Corporal (IMC)";
-        descripcion = "El Índice de Masa Corporal (IMC) es una medida utilizada para evaluar si una persona tiene un peso saludable en relación con su altura. Se calcula dividiendo el peso de una persona en kilogramos por el cuadrado de su altura en metros. La fórmula básica del IMC es la siguiente:";
-        gist = "<script src=\"https://gist.github.com/jfinfocesde/e2da562bb64be1b54f461de2cd5c001d.js\"></script>";
-        replit = "https://replit.com/@jhonvalencia3/ProyectoPrueba";
-        diagrama = "https://firebasestorage.googleapis.com/v0/b/cesde-7fe22.appspot.com/o/Proyecto%20Integrador%2FDiagrama.svg?alt=media&token=e04cad73-fd1c-4972-a571-da1389d04689";
+        titulo2 = "Adivina el número";
+        descripcion = "Descripción: Juego para que intentes adivinar el número que está pensando la máquina.";
+        gist = "<script src=\\\"https://gist.github.com/Isazaaa/69c571c3a6aad1cb8a0d1636e1e83776.js\\\"></script>" + //
+                "";
+        replit = "https://replit.com/@JuanIsaza/AdivinaNumero";
+        diagrama = "https://firebasestorage.googleapis.com/v0/b/adivina-b2f41.appspot.com/o/code2flow_GFMARk%20(1).png?alt=media&token=eec7f2be-dd58-49f8-98cc-bee3e080d76d&_gl=1*pjfvsq*_ga*OTY1OTU1NTU1LjE2OTc1NTM5ODc.*_ga_CW55HF8NVT*MTY5NzU1Mzk4Ny4xLjEuMTY5NzU1NDE1OS41MC4wLjA";
         add(secciones.algoritmo(titulo1, titulo2, descripcion, algoritmo1(), gist, replit, diagrama));
 
     }
 
+    private int numeroAdivinar;
+    private int intentos;
+    private TextField textField;
+    private Button adivinarButton;
+   
+/**
+     * @return
+     */
     public HorizontalLayout algoritmo1() {
-
+       
+       
         VerticalLayout vl1 = new VerticalLayout();
         vl1.setAlignItems(Alignment.CENTER);
-        vl1.add(new Image("https://static.tuasaude.com/media/article/me/dr/imc_15748_l.jpg", ""));
+        vl1.add(new Image("https://m.media-amazon.com/images/I/51848OMGGeL.png", ""));
+
 
         VerticalLayout vl2 = new VerticalLayout();
         vl2.setAlignItems(Alignment.CENTER);
+
 
         HorizontalLayout hl = new HorizontalLayout();
         hl.setAlignItems(Alignment.CENTER);
         hl.setWidthFull();
 
-        NumberField peso = new NumberField("Peso (kg)");
-        NumberField altura = new NumberField("Altura (m)");
-        Button calcular = new Button("Calcular IMC");
-        H3 salida = new H3();
 
-        calcular.addClickListener(event -> {
-            double valorPeso = peso.getValue();
-            double valorAltura = altura.getValue();
-            double imc = valorPeso / Math.pow(valorAltura, 2);
-            String info = "";
-            if (imc < 18.5) {
-                info = "Bajo peso";
-            } else if (imc >= 18.5 && imc < 24.9) {
-                info = "Peso saludable";
-            } else if (imc >= 25.0 && imc < 29.9) {
-                info = "Sobrepeso";
-            } else if (imc >= 30.0 && imc < 34.9) {
-                info = "Obesidad Clase 1";
-            } else if (imc >= 35.0 && imc < 39.9) {
-                info = "Obesidad Clase 2";
+        Random rand = new Random();
+        numeroAdivinar = rand.nextInt(100) + 1;
+        intentos = 0;
+
+
+        textField = new TextField("Suposición:");
+        adivinarButton = new Button("Adivinar");
+
+
+        adivinarButton.addClickListener(event -> {
+            intentos++;
+            int suposicion = Integer.parseInt(textField.getValue());
+            if (suposicion < numeroAdivinar) {
+                Notification.show("El número es mayor. Intenta de nuevo.");
+            } else if (suposicion > numeroAdivinar) {
+                Notification.show("El número es menor. Intenta de nuevo.");
             } else {
-                info = "Obesidad Clase 3";
+                Notification.show("¡Felicidades! Adivinaste el número en " + intentos + " intentos.");
+                textField.setEnabled(false);
+                adivinarButton.setEnabled(false);
             }
-            String numeroFormateado = String.format("%.2f", imc);
-            salida.setText(String.valueOf(numeroFormateado + ", " + info));
         });
-        vl2.add(new H3("Calculadora Índice de Masa Corporal (IMC)"));
-        vl2.add(peso);
-        vl2.add(altura);
-        vl2.add(calcular);
-        vl2.add(salida);
+
+
+        vl2.add(new H3("¿Puedes adivinar el número?"));
+        vl2.add(textField);
+        vl2.add(adivinarButton);
+        vl2.add();
         hl.add(vl1);
         hl.add(vl2);
         return hl;
