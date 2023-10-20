@@ -119,6 +119,16 @@ public class Grupo1View extends VerticalLayout {
         diagrama = "https://firebasestorage.googleapis.com/v0/b/fotos-proyecto-bfc34.appspot.com/o/Beige%20Colorful%20Minimal%20Flowchart%20Infographic%20Graph%20(2).jpg?alt=media&token=c580adca-19f7-410f-8acb-18dfbf65966b&_gl=1*1082zd1*_ga*MTY3NDMzNDI5NC4xNjk0NTQ2MzEz*_ga_CW55HF8NVT*MTY5NzEzNTE3My4xOC4xLjE2OTcxMzY4ODguNTAuMC4w";
         add(secciones.algoritmo(titulo1, titulo2, descripcion, algoritmo3(), gist, replit, diagrama));
 
+        // Algoritmo4
+        titulo1 = "Algoritmo 4";
+        titulo2 = "Test de Burpees\r\n" + //
+                "";
+        descripcion = "En este ejercicio se realiza el cálculo de lo cantidad de calorías que debería consumir una persona, basado en el peso que desea perder en un mes.";
+        gist = "<script src=\"https://gist.github.com/baldurt1992/8d16229b60b8b4d0428315146d34bf22.js\"></script>";
+        replit = "https://replit.com/@dubercarmona87/perderPeso";
+        diagrama = "https://firebasestorage.googleapis.com/v0/b/fotos-proyecto-bfc34.appspot.com/o/Beige%20Colorful%20Minimal%20Flowchart%20Infographic%20Graph.jpg?alt=media&token=cf9e1eea-465b-4982-9f97-aad8a8d87fc4&_gl=1*lcj2lp*_ga*MTQ5NTE1NzQ3Ni4xNjk2MzQ0MDA1*_ga_CW55HF8NVT*MTY5NzgwNzc5Ny41LjEuMTY5NzgwNzg3NS40Ni4wLjA.";
+        add(secciones.algoritmo(titulo1, titulo2, descripcion, algoritmo4(), gist, replit, diagrama));
+
     }
 
     public HorizontalLayout algoritmo1() {
@@ -370,6 +380,82 @@ public class Grupo1View extends VerticalLayout {
         vl2.add(new H3("Test de Burpees"));
         vl2.add(comboBoxGenero);
         vl2.add(burpeesrealizados);
+        vl2.add(calcular);
+        vl2.add(salida);
+        hl.add(vl1);
+        hl.add(vl2);
+        return hl;
+
+    }
+
+    public HorizontalLayout algoritmo4() {
+
+        VerticalLayout vl1 = new VerticalLayout();
+        vl1.setAlignItems(Alignment.CENTER);
+        vl1.add(new Image(
+                "https://firebasestorage.googleapis.com/v0/b/fotos-proyecto-bfc34.appspot.com/o/200730_4207907_6_claves_para_perder_peso_y_no_recuperarlo_n-fotor-2023102082637.jpg?alt=media&token=835394af-2041-4f9d-99f8-edda5a4c2645&_gl=1*106blo1*_ga*MTQ5NTE1NzQ3Ni4xNjk2MzQ0MDA1*_ga_CW55HF8NVT*MTY5NzgwNzc5Ny41LjEuMTY5NzgwODQxNy41MS4wLjA.",
+                ""));
+
+        VerticalLayout vl2 = new VerticalLayout();
+        vl2.setAlignItems(Alignment.CENTER);
+
+        HorizontalLayout hl = new HorizontalLayout();
+        hl.setAlignItems(Alignment.CENTER);
+        hl.setWidthFull();
+
+        ComboBox<String> comboBoxGenero = new ComboBox<>("Selecciona tu género");
+        comboBoxGenero.setAllowCustomValue(true);
+        List<String> opcionesGenero = Arrays.asList("Hombre", "Mujer");
+        comboBoxGenero.setItems(opcionesGenero);
+        IntegerField edad = new IntegerField("Ingresa tu edad");
+        IntegerField peso = new IntegerField("Ingresa tu peso actual en kg");
+        IntegerField kilos = new IntegerField("¿Cuántos kilos deseas perder?");
+        Button calcular = new Button("Calcular");
+        H3 salida = new H3();
+
+        calcular.addClickListener((ClickEvent<Button> event) -> {
+            String valorGenero = comboBoxGenero.getValue();
+            int valoredad = edad.getValue();
+            int valorpeso = peso.getValue();
+            int valorkilos = kilos.getValue();
+
+            double calcularTMBHombreDouble = 88.362 + (13.397 * valorpeso) + (4.799 * 160) - (5.677 * valoredad);
+            int calcularTMBHombre = (int) Math.round(calcularTMBHombreDouble);
+
+            double calcularTMBMujerDouble = 447.593 + (9.247 * valorpeso) + (3.098 * 160) - (4.330 * valoredad);
+            int calcularTMBMujer = (int) Math.round(calcularTMBMujerDouble);
+
+            double caloriasPerder = valorkilos * 7700;
+
+            caloriasPerder /= 30;
+
+            double tmb = (valorGenero == "Hombre") ? calcularTMBHombre : calcularTMBMujer;
+
+            double caloriasNecesarias = tmb - caloriasPerder;
+
+            System.out.println("Debes consumir alrededor de " + caloriasNecesarias + " calorías al día para perder "
+                    + valorkilos + " kilos en un mes.");
+
+            DecimalFormat formato = new DecimalFormat("0.00");
+            String valorformat = formato.format(caloriasNecesarias);  
+            String mensaje = "Debes consumir alrededor de " + valorformat + " calorías al día para perder "
+                    + valorkilos + " kilos en un mes.";
+
+            if (valorGenero.equals("Hombre")) {
+                mensaje += " Ejercicios recomendados para hombres: Ejercicio cardiovascular (correr, nadar, ciclismo), ejercicios de fuerza.";
+            } else if (valorGenero.equals("Mujer")) {
+                mensaje += " Ejercicios recomendados para mujeres: Caminatas, yoga, ejercicios de resistencia.";
+            }
+
+            salida.setText(mensaje);
+
+        });
+
+        vl2.add(new H3("Calculadora de pérdida de peso"));
+        vl2.add(comboBoxGenero);
+        vl2.add(edad);
+        vl2.add(peso);
+        vl2.add(kilos);
         vl2.add(calcular);
         vl2.add(salida);
         hl.add(vl1);
