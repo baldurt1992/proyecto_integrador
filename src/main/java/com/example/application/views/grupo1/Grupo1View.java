@@ -409,7 +409,7 @@ public class Grupo1View extends VerticalLayout {
         comboBoxGenero.setItems(opcionesGenero);
         IntegerField edad = new IntegerField("Ingresa tu edad");
         IntegerField peso = new IntegerField("Ingresa tu peso actual en kg");
-        IntegerField kilos = new IntegerField("¿Cuántos kilos deseas perder?");
+        IntegerField kilos = new IntegerField("Peso a perder");
         Button calcular = new Button("Calcular");
         H3 salida = new H3();
 
