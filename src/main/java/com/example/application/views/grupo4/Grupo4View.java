@@ -79,7 +79,7 @@ public class Grupo4View extends VerticalLayout {
         titulo1 = "Algoritmo 1";
         titulo2 = "Adivina el número";
         descripcion = "Descripción: Juego para que intentes adivinar el número que está pensando la máquina.";
-        gist = "<script src=\\\"https://gist.github.com/Isazaaa/69c571c3a6aad1cb8a0d1636e1e83776.js\\\"></script>" + //
+        gist = "<script src=\\\"https://gist.github.com/JuanGomezZz0/fe7210a13bcbaa5dd449bbb058dc74c4\\\"></script>" + //
                 "";
         replit = "https://replit.com/@JuanIsaza/AdivinaNumero";
         diagrama = "https://firebasestorage.googleapis.com/v0/b/adivina-b2f41.appspot.com/o/code2flow_GFMARk%20(1).png?alt=media&token=eec7f2be-dd58-49f8-98cc-bee3e080d76d&_gl=1*pjfvsq*_ga*OTY1OTU1NTU1LjE2OTc1NTM5ODc.*_ga_CW55HF8NVT*MTY5NzU1Mzk4Ny4xLjEuMTY5NzU1NDE1OS41MC4wLjA";
