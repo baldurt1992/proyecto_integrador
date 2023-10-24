@@ -121,7 +121,7 @@ public class Grupo1View extends VerticalLayout {
 
         // Algoritmo4
         titulo1 = "Algoritmo 4";
-        titulo2 = "Test de Burpees\r\n" + //
+        titulo2 = "Calculadora de perdida de peso\r\n" + //
                 "";
         descripcion = "En este ejercicio se realiza el cálculo de lo cantidad de calorías que debería consumir una persona, basado en el peso que desea perder en un mes.";
         gist = "<script src=\"https://gist.github.com/baldurt1992/8d16229b60b8b4d0428315146d34bf22.js\"></script>";
