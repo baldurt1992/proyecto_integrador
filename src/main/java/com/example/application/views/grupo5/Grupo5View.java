@@ -118,9 +118,9 @@ public class Grupo5View extends VerticalLayout {
         hl.setAlignItems(Alignment.CENTER);
         hl.setWidthFull();
 
-        NumberField parametro1 = new NumberField("Parámetro 1");
-        NumberField parametro2 = new NumberField("Parámetro 2");
-        NumberField parametro3 = new NumberField("Altura de la Pirámide");
+        NumberField parametro1 = new NumberField("Parámetro 1(cm)");
+        NumberField parametro2 = new NumberField("Parámetro 2(cm)");
+        NumberField parametro3 = new NumberField("Altura de la Pirámide(cm)");
         parametro3.setVisible(false); // Inicialmente, oculta el tercer NumberField
         
         Button calcular = new Button("Calcular Volumen");
@@ -183,7 +183,7 @@ calcular.addClickListener(event -> {
 
             double volumen = calcularVolumen(figura, valorParametro1, valorParametro2, alturaPiramide);
             String numeroFormateado = String.format("%.2f", volumen);
-            resultado.setText(String.valueOf("El volumen es: " + numeroFormateado));
+            resultado.setText(String.valueOf("El volumen es: " + numeroFormateado + "cm3"));
 
         });
 
