@@ -93,11 +93,17 @@ public class Grupo7View extends VerticalLayout {
 
     }
 
+    final char ESPACIO_VACIO = ' ';
+    final char JUGADOR_X = 'X';
+    final char JUGADOR_O = 'O';
     private static final int JUGADOR_JUGADOR = 1;
     private static final int JUGADOR_CPU = 2;
     private static final int CPU_CPU = 3;
     private StringBuilder[][] board = new StringBuilder[3][3];
     private boolean xTurn = true;
+    final int CONTEO_PARA_GANAR = 3;
+    private static final int COLUMNAS = 3;
+    private VerticalLayout gridLayout;
 
     public HorizontalLayout algoritmo1() {
 
@@ -136,7 +142,6 @@ public class Grupo7View extends VerticalLayout {
             }
             gridLayout.add(row);
         }
-
         ;
 
         playerVsPlayerButton.addClickListener(e -> {
@@ -169,6 +174,57 @@ public class Grupo7View extends VerticalLayout {
         layout.add(vl2);
         layout.add(vl3);
         return layout;
+    }
+
+    public boolean coordenadasVacias(int y, int x, StringBuilder[][] gridLayout) {
+        return gridLayout[y][x].charAt(0) == ESPACIO_VACIO;
+    }
+
+    public void colocarPieza(int y, int x, char pieza, StringBuilder[][] gridLayout) {
+        if (y < 0 || y >= 3) {
+            Notification.show("Fila incorrecta");
+            return;
+        }
+
+        if (x < 0 || x >= 3) {
+            Notification.show("Columna incorrecta");
+            return;
+        }
+        if (pieza != JUGADOR_O && pieza != JUGADOR_X) {
+            Notification.show(String.format("La pieza debe ser %c o %c", JUGADOR_O, JUGADOR_X));
+            return;
+        }
+        if (!coordenadasVacias(y, x, gridLayout)) {
+            Notification.show("Coordenadas ya ocupadas");
+            return;
+        }
+        gridLayout[y][x].setCharAt(0, pieza);
+    }
+
+    public int contarHaciaDerecha(int x, int y, char jugador, StringBuilder[][] gridLayout) {
+        int xFin = (x + CONTEO_PARA_GANAR < COLUMNAS) ? x + CONTEO_PARA_GANAR - 1 : COLUMNAS - 1;
+        int contador = 0;
+        for (; x <= xFin; x++) {
+            if (gridLayout[y][x].charAt(0) == jugador) {
+                contador++;
+            } else {
+                contador = 0;
+            }
+        }
+        return contador;
+    }
+
+    public int contarHaciaDerecha(int x, int y, char jugador, char[][] gridLayout) {
+        int xFin = (x + CONTEO_PARA_GANAR < COLUMNAS) ? x + CONTEO_PARA_GANAR - 1 : COLUMNAS - 1;
+        int contador = 0;
+        for (; x <= xFin; x++) {
+            if (gridLayout[y][x] == jugador) {
+                contador++;
+            } else {
+                contador = 0;
+            }
+        }
+        return contador;
     }
 
     public void iniciarJuego(int modoJuego) {
