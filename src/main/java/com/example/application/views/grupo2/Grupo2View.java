@@ -56,13 +56,16 @@ public class Grupo2View extends VerticalLayout {
 
         // Integrantes
         Map<String, String> est1 = new HashMap<>();
-        est1.put("image", "https://firebasestorage.googleapis.com/v0/b/fotos-proyecto-bfc34.appspot.com/o/Fotos%2FAngello%20Gomez.png?alt=media&token=e1bca8dd-d0fe-48a4-a596-260afe89240a&_gl=1*allqlf*_ga*MTQ5NTE1NzQ3Ni4xNjk2MzQ0MDA1*_ga_CW55HF8NVT*MTY5NjM0NDAwNS4xLjEuMTY5NjM0NTM3My42MC4wLjA.");
+        est1.put("image",
+                "https://firebasestorage.googleapis.com/v0/b/fotos-proyecto-bfc34.appspot.com/o/Fotos%2FAngello%20Gomez.png?alt=media&token=e1bca8dd-d0fe-48a4-a596-260afe89240a&_gl=1*allqlf*_ga*MTQ5NTE1NzQ3Ni4xNjk2MzQ0MDA1*_ga_CW55HF8NVT*MTY5NjM0NDAwNS4xLjEuMTY5NjM0NTM3My42MC4wLjA.");
         est1.put("name", "Angello Gomez Monsalve");
         Map<String, String> est2 = new HashMap<>();
-        est2.put("image", "https://firebasestorage.googleapis.com/v0/b/fotos-proyecto-bfc34.appspot.com/o/Fotos%2Fbrayan%20steven.png?alt=media&token=7f210c2b-105b-4d78-b884-7bb11d11b810&_gl=1*1ld106m*_ga*MTY3NDMzNDI5NC4xNjk0NTQ2MzEz*_ga_CW55HF8NVT*MTY5Njg2ODg1NS4xMi4xLjE2OTY4Njg5ODIuNjAuMC4w");
+        est2.put("image",
+                "https://firebasestorage.googleapis.com/v0/b/fotos-proyecto-bfc34.appspot.com/o/Fotos%2Fbrayan%20steven.png?alt=media&token=7f210c2b-105b-4d78-b884-7bb11d11b810&_gl=1*1ld106m*_ga*MTY3NDMzNDI5NC4xNjk0NTQ2MzEz*_ga_CW55HF8NVT*MTY5Njg2ODg1NS4xMi4xLjE2OTY4Njg5ODIuNjAuMC4w");
         est2.put("name", "Brayan Ortega");
         Map<String, String> est3 = new HashMap<>();
-        est3.put("image", "https://firebasestorage.googleapis.com/v0/b/fotos-proyecto-bfc34.appspot.com/o/Fotos%2FAndr%C3%A9s%20Camilo%20Quintana.png?alt=media&token=36705d48-6898-4262-bc7e-eef1b5223883&_gl=1*dfg882*_ga*MTQ5NTE1NzQ3Ni4xNjk2MzQ0MDA1*_ga_CW55HF8NVT*MTY5NjM0NDAwNS4xLjEuMTY5NjM0NTQ0MS42MC4wLjA.");
+        est3.put("image",
+                "https://firebasestorage.googleapis.com/v0/b/fotos-proyecto-bfc34.appspot.com/o/Fotos%2FAndr%C3%A9s%20Camilo%20Quintana.png?alt=media&token=36705d48-6898-4262-bc7e-eef1b5223883&_gl=1*dfg882*_ga*MTQ5NTE1NzQ3Ni4xNjk2MzQ0MDA1*_ga_CW55HF8NVT*MTY5NjM0NDAwNS4xLjEuMTY5NjM0NTQ0MS42MC4wLjA.");
         est3.put("name", "Andrés Camilo Quintana");
 
         users.add(est1);
@@ -83,33 +86,26 @@ public class Grupo2View extends VerticalLayout {
         descripcion = "Esta calculadora de caída libre permite determinar el tiempo de caída, la velocidad final y evaluar la letalidad de la caída de un coco a partir de una velocidad inicial y una altura especificadas.";
         gist = "<script src=\"https://gist.github.com/anggomezmo/29848b0e81602ab69f014868c513822d.js\"></script>\r\n";
         replit = "https://replit.com/@jhonvalencia3/ProyectoPrueba";
-        diagrama = "https://firebasestorage.googleapis.com/v0/b/cesde-7fe22.appspot.com/o/Proyecto%20Integrador%2FDiagrama.svg?alt=media&token=e04cad73-fd1c-4972-a571-da1389d04689";
+        diagrama = "https://firebasestorage.googleapis.com/v0/b/foto-de-git.appspot.com/o/Untitled%20Workspace.jpg?alt=media&token=9943b365-cd1a-4da8-bedb-c11fb8e6d857";
         add(secciones.algoritmo(titulo1, titulo2, descripcion, algoritmo1(), gist, replit, diagrama));
-
-
 
     }
 
     public HorizontalLayout algoritmo1() {
 
-
         VerticalLayout vl1 = new VerticalLayout();
         vl1.setAlignItems(Alignment.CENTER);
         vl1.add(new Image("https://cl.buscafs.com/www.levelup.com/public/uploads/images/93966.jpg", ""));
 
-
         VerticalLayout vl2 = new VerticalLayout();
         vl2.setAlignItems(Alignment.CENTER);
-
 
         VerticalLayout vl3 = new VerticalLayout();
         vl3.setAlignItems(Alignment.CENTER);
 
-
         HorizontalLayout hl = new HorizontalLayout();
         hl.setAlignItems(Alignment.CENTER);
         hl.setWidthFull();
-
 
         NumberField velocidadInicial = new NumberField("Velocidad Inicial (m/s)");
         NumberField altura = new NumberField("Altura (m)");
@@ -117,21 +113,15 @@ public class Grupo2View extends VerticalLayout {
         H3 tituloTiempo = new H3("Tiempo de caida");
         H4 resultTiempo = new H4("-");
 
-
         H3 tituloVelocidad = new H3("Velocidad final del coco");
-
 
         H4 resultVelocidad = new H4("-");
 
-
         H3 tituloLetalidad = new H3("Letalidad del coco");
-
 
         H4 resultLetalidad = new H4("-");
 
-
         calcular.addClickListener(event -> {
-
 
             DecimalFormat df = new DecimalFormat("#.00");
             double valorVelocidadInicial = velocidadInicial.getValue();
@@ -141,7 +131,6 @@ public class Grupo2View extends VerticalLayout {
             double tiempo = Math.sqrt((2 * valorAltura) / 9.8);
             String tiempoFormat = df.format(tiempo);
 
-
             resultTiempo.setText(tiempoFormat + " Segundos");
             resultVelocidad.setText(String.valueOf(velFormat + " m/s"));
             if (velFinal >= 22) {
@@ -149,7 +138,6 @@ public class Grupo2View extends VerticalLayout {
             } else {
                 resultLetalidad.setText("NO LETAL");
             }
-
 
         });
         vl2.add(new H3("Calculadora de coco en caida libre"));
@@ -163,14 +151,10 @@ public class Grupo2View extends VerticalLayout {
         vl3.add(tituloLetalidad);
         vl3.add(resultLetalidad);
 
-
         hl.add(vl1);
         hl.add(vl2);
         hl.add(vl3);
         return hl;
     }
 
-
 }
-
-

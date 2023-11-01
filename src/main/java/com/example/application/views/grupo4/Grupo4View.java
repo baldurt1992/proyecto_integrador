@@ -58,10 +58,12 @@ public class Grupo4View extends VerticalLayout {
 
         // Integrantes
         Map<String, String> est1 = new HashMap<>();
-        est1.put("image", "https://firebasestorage.googleapis.com/v0/b/fotos-proyecto-bfc34.appspot.com/o/Fotos%2FJuan%20Manuel%20Isaza.png?alt=media&token=65c7854f-4595-45b4-8a40-dfa9430407f1&_gl=1*6gfprf*_ga*MTY3NDMzNDI5NC4xNjk0NTQ2MzEz*_ga_CW55HF8NVT*MTY5Njg2ODg1NS4xMi4xLjE2OTY4NjkwMTUuMjcuMC4w");
+        est1.put("image",
+                "https://firebasestorage.googleapis.com/v0/b/fotos-proyecto-bfc34.appspot.com/o/Fotos%2FJuan%20Manuel%20Isaza.png?alt=media&token=65c7854f-4595-45b4-8a40-dfa9430407f1&_gl=1*6gfprf*_ga*MTY3NDMzNDI5NC4xNjk0NTQ2MzEz*_ga_CW55HF8NVT*MTY5Njg2ODg1NS4xMi4xLjE2OTY4NjkwMTUuMjcuMC4w");
         est1.put("name", "Juan Manuel Isaza");
         Map<String, String> est2 = new HashMap<>();
-        est2.put("image", "https://firebasestorage.googleapis.com/v0/b/fotos-proyecto-bfc34.appspot.com/o/Fotos%2FAna%20Mar%C3%ADa%20Ospina%20Duarte.png?alt=media&token=e2bf6ceb-2b20-4fa7-8b79-67fca2d1984e&_gl=1*taz2yi*_ga*MTQ5NTE1NzQ3Ni4xNjk2MzQ0MDA1*_ga_CW55HF8NVT*MTY5NjM0NDAwNS4xLjEuMTY5NjM0NjM4Ny41MC4wLjA.");
+        est2.put("image",
+                "https://firebasestorage.googleapis.com/v0/b/fotos-proyecto-bfc34.appspot.com/o/Fotos%2FAna%20Mar%C3%ADa%20Ospina%20Duarte.png?alt=media&token=e2bf6ceb-2b20-4fa7-8b79-67fca2d1984e&_gl=1*taz2yi*_ga*MTQ5NTE1NzQ3Ni4xNjk2MzQ0MDA1*_ga_CW55HF8NVT*MTY5NjM0NDAwNS4xLjEuMTY5NjM0NjM4Ny41MC4wLjA.");
         est2.put("name", "Ana María Ospina");
 
         users.add(est1);
@@ -79,7 +81,7 @@ public class Grupo4View extends VerticalLayout {
         titulo1 = "Algoritmo 1";
         titulo2 = "Adivina el número";
         descripcion = "Descripción: Juego para que intentes adivinar el número que está pensando la máquina.";
-        gist = "<script src=\\\"https://gist.github.com/JuanGomezZz0/fe7210a13bcbaa5dd449bbb058dc74c4\\\"></script>" + //
+        gist = "<script src=\"https://gist.github.com/Isazaaa/7eba780ad7cb270b2f1113bfebcd5159.js\"></script>" + //
                 "";
         replit = "https://replit.com/@JuanIsaza/AdivinaNumero";
         diagrama = "https://firebasestorage.googleapis.com/v0/b/adivina-b2f41.appspot.com/o/code2flow_GFMARk%20(1).png?alt=media&token=eec7f2be-dd58-49f8-98cc-bee3e080d76d&_gl=1*pjfvsq*_ga*OTY1OTU1NTU1LjE2OTc1NTM5ODc.*_ga_CW55HF8NVT*MTY5NzU1Mzk4Ny4xLjEuMTY5NzU1NDE1OS41MC4wLjA";
@@ -91,35 +93,29 @@ public class Grupo4View extends VerticalLayout {
     private int intentos;
     private TextField textField;
     private Button adivinarButton;
-   
-/**
+
+    /**
      * @return
      */
     public HorizontalLayout algoritmo1() {
-       
-       
+
         VerticalLayout vl1 = new VerticalLayout();
         vl1.setAlignItems(Alignment.CENTER);
         vl1.add(new Image("https://m.media-amazon.com/images/I/51848OMGGeL.png", ""));
 
-
         VerticalLayout vl2 = new VerticalLayout();
         vl2.setAlignItems(Alignment.CENTER);
-
 
         HorizontalLayout hl = new HorizontalLayout();
         hl.setAlignItems(Alignment.CENTER);
         hl.setWidthFull();
 
-
         Random rand = new Random();
         numeroAdivinar = rand.nextInt(100) + 1;
         intentos = 0;
 
-
         textField = new TextField("Suposición:");
         adivinarButton = new Button("Adivinar");
-
 
         adivinarButton.addClickListener(event -> {
             intentos++;
@@ -134,7 +130,6 @@ public class Grupo4View extends VerticalLayout {
                 adivinarButton.setEnabled(false);
             }
         });
-
 
         vl2.add(new H3("¿Puedes adivinar el número?"));
         vl2.add(textField);
