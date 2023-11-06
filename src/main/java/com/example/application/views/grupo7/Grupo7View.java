@@ -93,17 +93,10 @@ public class Grupo7View extends VerticalLayout {
 
     }
 
-    final char ESPACIO_VACIO = ' ';
-    final char JUGADOR_X = 'X';
-    final char JUGADOR_O = 'O';
-    private static final int JUGADOR_JUGADOR = 1;
-    private static final int JUGADOR_CPU = 2;
-    private static final int CPU_CPU = 3;
-    private StringBuilder[][] board = new StringBuilder[3][3];
-    private boolean xTurn = true;
-    final int CONTEO_PARA_GANAR = 3;
-    private static final int COLUMNAS = 3;
-    private VerticalLayout gridLayout;
+    // Modos de juego
+    final int JUGADOR_JUGADOR = 1;
+    final int JUGADOR_CPU = 2;
+    final int CPU_CPU = 3;
 
     public HorizontalLayout algoritmo1() {
 
@@ -112,149 +105,20 @@ public class Grupo7View extends VerticalLayout {
         vl1.add(new Image(
                 "https://firebasestorage.googleapis.com/v0/b/fotogit-b823c.appspot.com/o/8605_juego_didactico_triqui_-fotor-20231024145029.jpg?alt=media&token=c7915a80-2a91-44e1-acc6-2976fab45bf8&_gl=1*1ml1re*_ga*MTY3NDMzNDI5NC4xNjk0NTQ2MzEz*_ga_CW55HF8NVT*MTY5ODE3NjkwNC4yMC4xLjE2OTgxNzcwNDcuNDkuMC4w",
                 ""));
+
         VerticalLayout vl2 = new VerticalLayout();
         vl2.setAlignItems(Alignment.CENTER);
-        VerticalLayout vl3 = new VerticalLayout();
-        vl3.setAlignItems(Alignment.CENTER);
 
         HorizontalLayout hl = new HorizontalLayout();
         hl.setAlignItems(Alignment.CENTER);
         hl.setWidthFull();
 
-        HorizontalLayout optionsLayout = new HorizontalLayout();
-        Button playerVsPlayerButton = new Button("Jugador vs Jugador");
-        Button playerVsCpuButton = new Button("Jugador vs CPU");
-        Button cpuVsCpuButton = new Button("CPU vs CPU");
+        Triqui triqui = new Triqui();
 
-        VerticalLayout gridLayout = new VerticalLayout();
-        gridLayout.setWidth("300px");
-        gridLayout.setHeight("300px");
-        gridLayout.setJustifyContentMode(JustifyContentMode.CENTER);
-
-        for (int i = 0; i < 3; i++) {
-            HorizontalLayout row = new HorizontalLayout();
-            for (int j = 0; j < 3; j++) {
-                Button button = new Button();
-                button.setWidth("100px");
-                button.setHeight("100px");
-                // Agrega aquí la lógica de manejo de eventos para el botón
-                row.add(button);
-            }
-            gridLayout.add(row);
-        }
-        ;
-
-        playerVsPlayerButton.addClickListener(e -> {
-            iniciarJuego(JUGADOR_JUGADOR);
-        });
-
-        playerVsCpuButton.addClickListener(e -> {
-            iniciarJuego(JUGADOR_CPU);
-        });
-
-        cpuVsCpuButton.addClickListener(e -> {
-            iniciarJuego(CPU_CPU);
-        });
-
-        optionsLayout.add(playerVsPlayerButton, playerVsCpuButton, cpuVsCpuButton);
-
-        HorizontalLayout layout = new HorizontalLayout();
-        layout.add(optionsLayout);
-
-        vl2.add(new H3("Triqui"));
-        vl2.add(optionsLayout);
-        vl2.add(playerVsCpuButton);
-        vl2.add(playerVsPlayerButton);
-        vl2.add(cpuVsCpuButton);
-        vl3.add(gridLayout);
+        vl2.add(triqui.mostrarTablero());
         hl.add(vl1);
         hl.add(vl2);
-        hl.add(vl3);
-        layout.add(hl);
-        layout.add(vl2);
-        layout.add(vl3);
-        return layout;
+        return hl;
     }
-
-    public boolean coordenadasVacias(int y, int x, StringBuilder[][] gridLayout) {
-        return gridLayout[y][x].charAt(0) == ESPACIO_VACIO;
-    }
-
-    public void colocarPieza(int y, int x, char pieza, StringBuilder[][] gridLayout) {
-        if (y < 0 || y >= 3) {
-            Notification.show("Fila incorrecta");
-            return;
-        }
-
-        if (x < 0 || x >= 3) {
-            Notification.show("Columna incorrecta");
-            return;
-        }
-        if (pieza != JUGADOR_O && pieza != JUGADOR_X) {
-            Notification.show(String.format("La pieza debe ser %c o %c", JUGADOR_O, JUGADOR_X));
-            return;
-        }
-        if (!coordenadasVacias(y, x, gridLayout)) {
-            Notification.show("Coordenadas ya ocupadas");
-            return;
-        }
-        gridLayout[y][x].setCharAt(0, pieza);
-    }
-
-    public int contarHaciaDerecha(int x, int y, char jugador, StringBuilder[][] gridLayout) {
-        int xFin = (x + CONTEO_PARA_GANAR < COLUMNAS) ? x + CONTEO_PARA_GANAR - 1 : COLUMNAS - 1;
-        int contador = 0;
-        for (; x <= xFin; x++) {
-            if (gridLayout[y][x].charAt(0) == jugador) {
-                contador++;
-            } else {
-                contador = 0;
-            }
-        }
-        return contador;
-    }
-
-    public int contarHaciaDerecha(int x, int y, char jugador, char[][] gridLayout) {
-        int xFin = (x + CONTEO_PARA_GANAR < COLUMNAS) ? x + CONTEO_PARA_GANAR - 1 : COLUMNAS - 1;
-        int contador = 0;
-        for (; x <= xFin; x++) {
-            if (gridLayout[y][x] == jugador) {
-                contador++;
-            } else {
-                contador = 0;
-            }
-        }
-        return contador;
-    }
-
-    public void iniciarJuego(int modoJuego) {
-        limpiarTablero();
-        salida.setText("");
-
-        switch (modoJuego) {
-            case JUGADOR_JUGADOR:
-                // Lógica para jugador vs jugador
-                Notification.show("Modo Jugador vs Jugador seleccionado.");
-                break;
-            case JUGADOR_CPU:
-                // Lógica para jugador vs CPU
-                Notification.show("Modo Jugador vs CPU seleccionado.");
-                break;
-            case CPU_CPU:
-                // Lógica para CPU vs CPU
-                Notification.show("Modo CPU vs CPU seleccionado.");
-                break;
-            default:
-                break;
-        }
-    }
-
-    private void limpiarTablero() {
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                board[i][j] = new StringBuilder(" ");
-            }
-        }
-
-    }
+    
 }
