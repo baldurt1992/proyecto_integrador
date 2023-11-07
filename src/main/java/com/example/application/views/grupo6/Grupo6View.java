@@ -7,15 +7,19 @@ import java.util.Map;
 import com.example.application.views.MainLayout;
 import com.example.application.views.Secciones;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.combobox.ComboBox;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.html.H3;
+import com.vaadin.flow.component.html.H4;
 import com.vaadin.flow.component.html.Hr;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.component.textfield.BigDecimalField;
 import com.vaadin.flow.component.textfield.IntegerField;
 import com.vaadin.flow.component.textfield.NumberField;
+import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.server.PWA;
@@ -90,6 +94,16 @@ public class Grupo6View extends VerticalLayout {
         replit = "https://replit.com/@zsebax1994/Calculadora-de-materiales-para-concreto";
         diagrama = "https://firebasestorage.googleapis.com/v0/b/github-pages-7777b.appspot.com/o/Proyecto%20integrador%20logica%2F_Diagrama%20de%20flujo%20calculadora%20de%20materiales.png?alt=media&token=c3750946-2458-4bb8-b74d-de768726c10f";
         add(secciones.algoritmo(titulo1, titulo2, descripcion, algoritmo1(), gist, replit, diagrama));
+        // Algoritmo2
+        titulo1 = "Algoritmo 2";
+        titulo2 = "Calculadora de materiales para concreto según la resistencia y cantidad.";
+        descripcion = "Esta calculadora proporciona la cantidad de materiales necesarios para un metraje exacto de concreto, con su respectiva resistencia en PSI.\r\n"
+                + //
+                "";
+        gist = "<script src=\"https://gist.github.com/Sebaxtian18/45cacc82903f12c55db9a147e54e5843.js\"></script>";
+        replit = "https://replit.com/@zsebax1994/Calculadora-de-materiales-para-concreto";
+        diagrama = "https://firebasestorage.googleapis.com/v0/b/github-pages-7777b.appspot.com/o/Proyecto%20integrador%20logica%2F_Diagrama%20de%20flujo%20calculadora%20de%20materiales.png?alt=media&token=c3750946-2458-4bb8-b74d-de768726c10f";
+        add(secciones.algoritmo(titulo1, titulo2, descripcion, algoritmo2(), gist, replit, diagrama));
 
     }
 
@@ -213,6 +227,91 @@ public class Grupo6View extends VerticalLayout {
         hl.add(vl1);
         hl.add(vl2);
         return hl;
+    }
+
+    public HorizontalLayout algoritmo2() {
+
+        VerticalLayout vl1 = new VerticalLayout();
+        vl1.setAlignItems(Alignment.CENTER);
+        vl1.add(new Image(
+                "https://firebasestorage.googleapis.com/v0/b/github-pages-7777b.appspot.com/o/Proyecto%20integrador%20logica%2Fconcreto1.jpg?alt=media&token=1e6c5845-cd38-4b58-b892-49f343f60df8",
+                ""));
+
+        VerticalLayout vl2 = new VerticalLayout();
+        vl2.setAlignItems(Alignment.CENTER);
+
+        HorizontalLayout hl = new HorizontalLayout();
+        hl.setAlignItems(Alignment.CENTER);
+        hl.setWidthFull();
+
+        H1 title = new H1("Conversor");
+        H4 result = new H4("0");
+
+        Button calcular = new Button("Calcular");
+        BigDecimalField valor = new BigDecimalField();
+
+        ComboBox<String> comboBox1 = new ComboBox<>("Conversión");
+        comboBox1.setAllowCustomValue(true);
+        add(comboBox1);
+        comboBox1.setItems("Pies a Metros", "Pulgadas a Centimetros", "Millas a Kilometros", "Metros a Centimetros");
+
+        comboBox1.addValueChangeListener(event -> {
+           valor.setValue(null);
+           result.setText("");
+        });
+
+        calcular.addClickListener(event -> {
+            String seleccion = comboBox1.getValue();
+            double valorConvertir = valor.getValue().doubleValue();
+            if (seleccion.equals("Pies a Metros")) {
+                double resultadoObjetivo = valorConvertir * piesAMetros();
+                result.setText(valorConvertir + " pies equivalen a " + resultadoObjetivo + " metros");  
+            } else if (seleccion.equals("Pulgadas a Centimetros")) {
+                double resultadoObjetivo1 = valorConvertir * pulgadasACentimetros();
+                result.setText(valorConvertir + " pulgadas equivalen a " + resultadoObjetivo1 + " centimetros");
+            } else if (seleccion.equals("Millas a Kilometros")) {
+                double resultadoObjetivo2 = valorConvertir * millasAKilometros();
+                result.setText(valorConvertir + " millas equivalen a " + resultadoObjetivo2 + " kilometros");
+            } else if (seleccion.equals("Metros a Centimetros")) {
+                double resultadoObjetivo3 = valorConvertir * metrosACentimetros();
+                result.setText(valorConvertir + " metros equivalen a " + resultadoObjetivo3 + " centimetros");
+            }
+        });
+
+        vl2.add(title);
+        vl2.add(comboBox1);
+        vl2.add(valor);
+        vl2.add(calcular);
+        vl2.add(result);
+
+        hl.add(vl1);
+        hl.add(vl2);
+        return hl;
+
+    }
+
+    public static double piesAMetros() {
+        //1 pie equivale a 0.3048 metros
+        double pie = 0.3048;
+        return pie;
+    }
+
+    public static double pulgadasACentimetros() {
+        //1 pulgada equivale a 2.54cm
+        double pulgada = 2.54;
+        return pulgada;
+    }
+
+    public static double millasAKilometros() {
+        //1 milla equivale a 1.6093km
+        double kilometro = 1.6093;
+        return kilometro;
+    }
+
+    public static double metrosACentimetros() {
+        //1 metro equivale a 100cm
+        double metro = 100;
+        return metro;
     }
 
 }
