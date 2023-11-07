@@ -15,7 +15,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  *
  */
 @SpringBootApplication
-@Theme(value = "proyectointegrador", variant= Lumo.DARK)
+@Theme(value = "proyectointegrador", variant= Lumo.LIGHT)
 public class Application implements AppShellConfigurator {
 
     public static void main(String[] args) {
