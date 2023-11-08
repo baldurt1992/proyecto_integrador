@@ -18,6 +18,7 @@ import com.vaadin.flow.component.textfield.NumberField;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.component.select.Select;
+import com.vaadin.flow.component.notification.Notification;
 
 @PageTitle("Grupo 5")
 @Route(value = "grupo-5", layout = MainLayout.class)
@@ -108,11 +109,11 @@ public class Grupo5View extends VerticalLayout {
 
         // Algoritmo4
         titulo1 = "Algoritmo 4";
-        titulo2 = "Hallar el área y el perímetro de un Rombo";
-        descripcion = "Se desea hallar el área o el perímetro  de un rombo, dándome a elegir entre el área o el perímetro. El perímetro es la distancia alrededor de una figura o forma, es la suma de medidas del contorno. El área mide el espacio dentro de una figura y se da en unidades cuadradas.";
-        gist = "<script src=\\\"https://gist.github.com/CASanchezc5/4703b14e659d73bc531d33b92e6c90d6.js\\\"></script>";
+        titulo2 = "Teorema de Pitágoras";
+        descripcion = "Hallar la hipotenusa en un triángulo rectángulo mediante el teorema de Pitágoras. El Teorema de Pitágoras dice que todo triángulo rectángulo el cuadrado de la hipotenusa es igual a la suma de los cuadrados de los catetos. Un triángulo rectángulo es aquel que tiene un ángulo de 90° y el lado opuesto a este ángulo se le conoce como hipotenusa y los otros lados se les conoce como catetos.";
+        gist = "<script src=\"https://gist.github.com/CASanchezc5/3538207080891e061f491e20e5957075.js\"></script>";
         replit = "https://replit.com/@carlos-andre253/Algoritmo4";
-        diagrama = "https://firebasestorage.googleapis.com/v0/b/imagenes-dd8e6.appspot.com/o/DFAlgoritmo4.png?alt=media&token=050eed58-1540-4542-9afa-e2c7257c0ede&_gl=1*125nn3z*_ga*MzAzMzU0MjM2LjE2OTQ2MTYwNDY.*_ga_CW55HF8NVT*MTY5Nzk5NTUxOC4yNS4xLjE2OTc5OTU2NDcuNjAuMC4w";
+        diagrama = "https://firebasestorage.googleapis.com/v0/b/desarrollo-software-nelson.appspot.com/o/Teorema%20de%20Pitagoras%20-%20Diagrama%20de%20flujo.jpg?alt=media&token=d29542d8-d41d-4b8a-b411-a34977959988&_gl=1*weqc1i*_ga*MTcwMTI3Mzk1MS4xNjk2MzQ2MTUy*_ga_CW55HF8NVT*MTY5ODk0MTQxNi4xMi4xLjE2OTg5NDE0NzAuNi4wLjA";
         add(secciones.algoritmo(titulo1, titulo2, descripcion, algoritmo4(), gist, replit, diagrama));
 
     }
@@ -278,7 +279,7 @@ public class Grupo5View extends VerticalLayout {
         VerticalLayout vl1 = new VerticalLayout();
         vl1.setAlignItems(Alignment.CENTER);
         vl1.add(new Image(
-                "https://firebasestorage.googleapis.com/v0/b/imagenes-dd8e6.appspot.com/o/trangulosEyI.png?alt=media&token=0d131aee-fafb-4f68-aac6-115fd4e50678&_gl=1*6jisvy*_ga*MzAzMzU0MjM2LjE2OTQ2MTYwNDY.*_ga_CW55HF8NVT*MTY5NzE0NDc2OS4yMy4wLjE2OTcxNDQ3NjkuNjAuMC4w",
+                "https://firebasestorage.googleapis.com/v0/b/imagenes-dd8e6.appspot.com/o/equilatero-isosceles.png?alt=media&token=0c3312fd-c68c-4163-9188-391c2218cc54&_gl=1*r4t7f2*_ga*MzAzMzU0MjM2LjE2OTQ2MTYwNDY.*_ga_CW55HF8NVT*MTY5NzkxOTUzOS4yNC4xLjE2OTc5MjQxMTEuMjMuMC4w",
                 ""));
 
         VerticalLayout vl2 = new VerticalLayout();
@@ -367,92 +368,48 @@ public class Grupo5View extends VerticalLayout {
         VerticalLayout vl1 = new VerticalLayout();
         vl1.setAlignItems(Alignment.CENTER);
         vl1.add(new Image(
-                "https://firebasestorage.googleapis.com/v0/b/imagenes-dd8e6.appspot.com/o/rea-y-per%C3%ADmetro-de-un-rombo.png?alt=media&token=e6efcef7-0096-4448-94db-7235baaaa121&_gl=1*n4f8ew*_ga*MzAzMzU0MjM2LjE2OTQ2MTYwNDY.*_ga_CW55HF8NVT*MTY5NzkxOTUzOS4yNC4xLjE2OTc5MjMyNDAuMjIuMC4w",
+                "https://firebasestorage.googleapis.com/v0/b/imagenes-dd8e6.appspot.com/o/teoremapitagoras.png?alt=media&token=6492454d-6e0a-4da4-a527-4fbfc44dc3c5&_gl=1*mlsmp9*_ga*MzAzMzU0MjM2LjE2OTQ2MTYwNDY.*_ga_CW55HF8NVT*MTY5ODUwODg1Ny4yOS4xLjE2OTg1MDg5OTIuMi4wLjA.",
                 ""));
 
         VerticalLayout vl2 = new VerticalLayout();
         vl2.setAlignItems(Alignment.CENTER);
 
-        VerticalLayout vl3 = new VerticalLayout();
-        vl3.setAlignItems(Alignment.CENTER);
-
         HorizontalLayout hl = new HorizontalLayout();
         hl.setAlignItems(Alignment.CENTER);
         hl.setWidthFull();
 
-        NumberField lado = new NumberField("Lado (cm)");
-        NumberField diagMayor = new NumberField("Diagonal Mayor (cm)");
-        NumberField diagMenor = new NumberField("Diagonal Menor (cm)");
-        lado.setVisible(true); // Inicialmente, oculta el tercer NumberField
+        NumberField cateto1 = new NumberField("Longitud del primer cateto (cm)"); // Campo para ingresar números
+        NumberField cateto2 = new NumberField("Longitud del segundo cateto (cm)"); // Campo para ingresar números
+        Button calcularButton = new Button("Calcular Hipotenusa"); // Este es el botón
+        H3 resultado = new H3(); // Este es el resultado que aparece como un texto en H3
 
-        Button calcular = new Button("Calcular");
-        H3 resultado = new H3();
+        calcularButton.addClickListener(event -> { // Para que el botón tenga funcionalidad
+            double valorCateto1 = cateto1.getValue() != null ? cateto1.getValue() : 0;
+            double valorCateto2 = cateto2.getValue() != null ? cateto2.getValue() : 0;
 
-        Select<String> select = new Select<>();
-        select.setLabel("Elige Área o Perímetro");
-        select.setItems("Área", "Perímetro");
-        select.setValue("Perímetro");
-        H2 salida1 = new H2();
-
-        select.addValueChangeListener(event -> { // usamos addValueChangeListener para escuchar los cambios de
-                                                 // selección en el Select
-            String figura = event.getValue();
-            String infofig = "";
-            if ("Área".equals(figura)) {
-                infofig = "Área";
-                lado.setVisible(false); // Oculta el primer NumberField
-                diagMayor.setVisible(true); // Muestra el segundo NumberField
-                diagMenor.setVisible(true); // Muestra el tercer NumberField
-            } else if ("Perímetro".equals(figura)) {
-                infofig = "Perímetro";
-                lado.setVisible(true); // Muestra el primer NumberField
-                diagMayor.setVisible(false); // Oculta el segundo NumberField
-                diagMenor.setVisible(false); // Oculta el tercer NumberField
-            } else {
-                infofig = "Opción no Válida";
-                lado.setVisible(false); // Oculta todos los NumberFields
-                diagMayor.setVisible(false);
-                diagMenor.setVisible(false);
+            if (valorCateto1 <= 0 || valorCateto2 <= 0) {
+                Notification.show("Por favor, ingresa longitudes positivas para los catetos.");
+                return;
             }
-            salida1.setText(infofig);
+
+            double hipotenusa = calcularHipotenusa(valorCateto1, valorCateto2);
+
+            String numeroFormateado = String.format("%.2f", hipotenusa);
+            resultado.setText(String.valueOf("La Hipotenusa es de: " + numeroFormateado + " cm"));
         });
 
-        calcular.addClickListener(event -> {
-            String figura = select.getValue();
-            String numeroFormateado;
-
-            double valorLado = lado.getValue();
-            double valorDMayor = diagMayor.getValue();
-            double valorDMenor = diagMenor.getValue();
-            double areaRombo;
-            double perimRombo;
-
-            if (figura == "Perímetro") {
-                perimRombo = 4 * valorLado;
-                numeroFormateado = String.format("%.2f", perimRombo); // para formatear el resultado que sea a 2
-                                                                      // cifras decimales
-                resultado.setText(String.valueOf("El Perímetro es: " + numeroFormateado + " cm"));
-            } else if (figura == "Área") {
-                areaRombo = (valorDMayor * valorDMenor) / 2;
-                numeroFormateado = String.format("%.2f", areaRombo); // para formatear el resultado que sea a 2
-                                                                     // cifras decimales
-                resultado.setText(String.valueOf("El Área es: " + numeroFormateado + " cm2"));
-            }
-        });
-
-        vl3.add(new H3("Perímetro o Área del Rombo"));
-        vl2.add(select);
-        vl2.add(salida1);
-        vl3.add(lado);
-        vl3.add(diagMayor);
-        vl3.add(diagMenor);
-        vl3.add(calcular);
-        vl3.add(resultado);
-
+        vl2.add(new H3("Calculadora de Hipotenusa"));
+        vl2.add(cateto1);
+        vl2.add(cateto2);
+        vl2.add(calcularButton);
+        vl2.add(resultado);
         hl.add(vl1);
         hl.add(vl2);
-        hl.add(vl3);
         return hl;
+    }
+
+    public static double calcularHipotenusa(double cateto1, double cateto2) {
+        return Math.sqrt(cateto1 * cateto1 + cateto2 * cateto2);
     }
 
 }

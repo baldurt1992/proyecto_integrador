@@ -1,12 +1,15 @@
 package com.example.application.views.grupo9;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import com.example.application.views.MainLayout;
 import com.example.application.views.Secciones;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.combobox.ComboBox;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.html.H3;
@@ -14,6 +17,7 @@ import com.vaadin.flow.component.html.Hr;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.component.textfield.IntegerField;
 import com.vaadin.flow.component.textfield.NumberField;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
@@ -54,10 +58,12 @@ public class Grupo9View extends VerticalLayout {
 
         // Integrantes
         Map<String, String> est1 = new HashMap<>();
-        est1.put("image", "https://firebasestorage.googleapis.com/v0/b/fotos-proyecto-bfc34.appspot.com/o/Fotos%2FSantiago%20Tamayo%20(1).png?alt=media&token=9b929996-cbc7-462a-89c8-6be5c2d15a05&_gl=1*4aqwi*_ga*MTQ5NTE1NzQ3Ni4xNjk2MzQ0MDA1*_ga_CW55HF8NVT*MTY5NjM0NDAwNS4xLjEuMTY5NjM0NjI2MC4zOS4wLjA.");
+        est1.put("image",
+                "https://firebasestorage.googleapis.com/v0/b/fotos-proyecto-bfc34.appspot.com/o/Fotos%2FSantiago%20Tamayo%20(1).png?alt=media&token=9b929996-cbc7-462a-89c8-6be5c2d15a05&_gl=1*4aqwi*_ga*MTQ5NTE1NzQ3Ni4xNjk2MzQ0MDA1*_ga_CW55HF8NVT*MTY5NjM0NDAwNS4xLjEuMTY5NjM0NjI2MC4zOS4wLjA.");
         est1.put("name", "santiago tamayo");
         Map<String, String> est2 = new HashMap<>();
-        est2.put("image", "https://firebasestorage.googleapis.com/v0/b/fotos-proyecto-bfc34.appspot.com/o/Fotos%2Fimagen%20jorge%20uribe.png?alt=media&token=ee59bfcf-c3fd-4905-b1e5-c569f5d130ac&_gl=1*1rpi6x8*_ga*MTQ5NTE1NzQ3Ni4xNjk2MzQ0MDA1*_ga_CW55HF8NVT*MTY5NjM0NDAwNS4xLjEuMTY5NjM0NjIzOS42MC4wLjA.");
+        est2.put("image",
+                "https://firebasestorage.googleapis.com/v0/b/fotos-proyecto-bfc34.appspot.com/o/Fotos%2Fimagen%20jorge%20uribe.png?alt=media&token=ee59bfcf-c3fd-4905-b1e5-c569f5d130ac&_gl=1*1rpi6x8*_ga*MTQ5NTE1NzQ3Ni4xNjk2MzQ0MDA1*_ga_CW55HF8NVT*MTY5NjM0NDAwNS4xLjEuMTY5NjM0NjIzOS42MC4wLjA.");
         est2.put("name", "jorge uribe");
 
         users.add(est1);
@@ -73,11 +79,11 @@ public class Grupo9View extends VerticalLayout {
 
         // Algoritmo1
         titulo1 = "Algoritmo 1";
-        titulo2 = "Calculadora Índice de Masa Corporal (IMC)";
-        descripcion = "El Índice de Masa Corporal (IMC) es una medida utilizada para evaluar si una persona tiene un peso saludable en relación con su altura. Se calcula dividiendo el peso de una persona en kilogramos por el cuadrado de su altura en metros. La fórmula básica del IMC es la siguiente:";
-        gist = "<script src=\"https://gist.github.com/jfinfocesde/e2da562bb64be1b54f461de2cd5c001d.js\"></script>";
-        replit = "https://replit.com/@jhonvalencia3/ProyectoPrueba";
-        diagrama = "https://firebasestorage.googleapis.com/v0/b/cesde-7fe22.appspot.com/o/Proyecto%20Integrador%2FDiagrama.svg?alt=media&token=e04cad73-fd1c-4972-a571-da1389d04689";
+        titulo2 = "Indice de grasa corporal";
+        descripcion = "La grasa corporal; es la cantida Total de grasa que se distribuye por nuestro cuerpo. Se define como un porcentaje , que es  diferente para hombres y mujeres.:";
+        gist = "<script src=\"https://gist.github.com/santi0804/4d4a7c1dc169fb6deb822eb93574a8b5.js\"></script>";
+        replit = "https://replit.com/@SantiagoTamayo4/Algoritmo1#Main.java";
+        diagrama = "https://firebasestorage.googleapis.com/v0/b/imagenes-e192b.appspot.com/o/diagrama%20de%20flujo-1.png?alt=media&token=e546629b-c9e6-460b-9866-5c46aa086711";
         add(secciones.algoritmo(titulo1, titulo2, descripcion, algoritmo1(), gist, replit, diagrama));
 
     }
@@ -86,7 +92,9 @@ public class Grupo9View extends VerticalLayout {
 
         VerticalLayout vl1 = new VerticalLayout();
         vl1.setAlignItems(Alignment.CENTER);
-        vl1.add(new Image("https://static.tuasaude.com/media/article/me/dr/imc_15748_l.jpg", ""));
+        vl1.add(new Image(
+                "https://firebasestorage.googleapis.com/v0/b/imagenes-e192b.appspot.com/o/grasa%201.jpg?alt=media&token=1f886453-2579-44ed-a539-8db7461078b9",
+                ""));
 
         VerticalLayout vl2 = new VerticalLayout();
         vl2.setAlignItems(Alignment.CENTER);
@@ -97,38 +105,43 @@ public class Grupo9View extends VerticalLayout {
 
         NumberField peso = new NumberField("Peso (kg)");
         NumberField altura = new NumberField("Altura (m)");
-        Button calcular = new Button("Calcular IMC");
+        IntegerField edad = new IntegerField("Edad");
+        ComboBox<String> genero = new ComboBox<>("Género");
+        genero.setAllowCustomValue(true);
+        List<String> opcionesgenero = Arrays.asList("Hombre", "Mujer");
+        genero.setItems(opcionesgenero);
+        Button calcular = new Button("Calcular");
         H3 salida = new H3();
 
         calcular.addClickListener(event -> {
-            double valorPeso = peso.getValue();
-            double valorAltura = altura.getValue();
-            double imc = valorPeso / Math.pow(valorAltura, 2);
-            String info = "";
-            if (imc < 18.5) {
-                info = "Bajo peso";
-            } else if (imc >= 18.5 && imc < 24.9) {
-                info = "Peso saludable";
-            } else if (imc >= 25.0 && imc < 29.9) {
-                info = "Sobrepeso";
-            } else if (imc >= 30.0 && imc < 34.9) {
-                info = "Obesidad Clase 1";
-            } else if (imc >= 35.0 && imc < 39.9) {
-                info = "Obesidad Clase 2";
+            double valorpeso = peso.getValue();
+            double valoraltura = altura.getValue();
+            int valoredad = edad.getValue();
+            String valorgenero = genero.getValue();
+            double imc = valorpeso / (valoraltura * 2);
+            double grasacorporal;
+            genero.setValue(valorgenero);
+
+            if (valorgenero.equalsIgnoreCase("hombre")) {
+                grasacorporal = (1.2 * imc) + (0.23 * valoredad) - 10.8 - 5.4;
+            } else if (valorgenero.equalsIgnoreCase("mujer")) {
+                grasacorporal = (1.2 * imc) + (0.23 * valoredad) - 5.4;
+
             } else {
-                info = "Obesidad Clase 3";
+                throw new IllegalArgumentException("Sexo no válido. Use 'M' para masculino o 'F' para femenino.");
             }
-            String numeroFormateado = String.format("%.2f", imc);
-            salida.setText(String.valueOf(numeroFormateado + ", " + info));
+            salida.setText("Su grasa corporal es aproximadamente: " + grasacorporal + "%");
+
         });
-        vl2.add(new H3("Calculadora Índice de Masa Corporal (IMC)"));
+        vl2.add(new H3("Calculadora grasa corporal"));
         vl2.add(peso);
         vl2.add(altura);
+        vl2.add(edad);
+        vl2.add(genero);
         vl2.add(calcular);
         vl2.add(salida);
         hl.add(vl1);
         hl.add(vl2);
         return hl;
     }
-
 }

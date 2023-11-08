@@ -23,6 +23,12 @@ import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.server.PWA;
+import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.notification.Notification;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.router.Route;
+import com.vaadin.flow.server.PWA;
 
 @PageTitle("Grupo 6")
 @Route(value = "grupo-6", layout = MainLayout.class)
@@ -256,8 +262,8 @@ public class Grupo6View extends VerticalLayout {
         comboBox1.setItems("Pies a Metros", "Pulgadas a Centimetros", "Millas a Kilometros", "Metros a Centimetros");
 
         comboBox1.addValueChangeListener(event -> {
-           valor.setValue(null);
-           result.setText("");
+            valor.setValue(null);
+            result.setText("");
         });
 
         calcular.addClickListener(event -> {
@@ -265,7 +271,7 @@ public class Grupo6View extends VerticalLayout {
             double valorConvertir = valor.getValue().doubleValue();
             if (seleccion.equals("Pies a Metros")) {
                 double resultadoObjetivo = valorConvertir * piesAMetros();
-                result.setText(valorConvertir + " pies equivalen a " + resultadoObjetivo + " metros");  
+                result.setText(valorConvertir + " pies equivalen a " + resultadoObjetivo + " metros");
             } else if (seleccion.equals("Pulgadas a Centimetros")) {
                 double resultadoObjetivo1 = valorConvertir * pulgadasACentimetros();
                 result.setText(valorConvertir + " pulgadas equivalen a " + resultadoObjetivo1 + " centimetros");
@@ -291,25 +297,25 @@ public class Grupo6View extends VerticalLayout {
     }
 
     public static double piesAMetros() {
-        //1 pie equivale a 0.3048 metros
+        // 1 pie equivale a 0.3048 metros
         double pie = 0.3048;
         return pie;
     }
 
     public static double pulgadasACentimetros() {
-        //1 pulgada equivale a 2.54cm
+        // 1 pulgada equivale a 2.54cm
         double pulgada = 2.54;
         return pulgada;
     }
 
     public static double millasAKilometros() {
-        //1 milla equivale a 1.6093km
+        // 1 milla equivale a 1.6093km
         double kilometro = 1.6093;
         return kilometro;
     }
 
     public static double metrosACentimetros() {
-        //1 metro equivale a 100cm
+        // 1 metro equivale a 100cm
         double metro = 100;
         return metro;
     }
