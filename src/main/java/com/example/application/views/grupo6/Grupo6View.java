@@ -54,6 +54,8 @@ public class Grupo6View extends VerticalLayout {
 
         H1 t1 = new H1("Grupo 6");
         H2 t2 = new H2("Construción");
+        t1.getStyle().set("color", "white");
+        t2.getStyle().set("color", "white");
         t1.getStyle().set("text-shadow", "#000 3px 0 15px");
         t2.getStyle().set("text-shadow", "#000 3px 0 15px");
         vl.add(t1);
