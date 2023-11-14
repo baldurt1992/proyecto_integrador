@@ -94,14 +94,13 @@ public class Grupo6View extends VerticalLayout {
 
         // Algoritmo1
         titulo1 = "Algoritmo 1";
-        titulo2 = "Calculadora de materiales para concreto según la resistencia y cantidad.";
-        descripcion = "Esta calculadora proporciona la cantidad de materiales necesarios para un metraje exacto de concreto, con su respectiva resistencia en PSI.\r\n"
-                + //
-                "";
-        gist = "<script src=\"https://gist.github.com/Sebaxtian18/45cacc82903f12c55db9a147e54e5843.js\"></script>";
-        replit = "https://replit.com/@zsebax1994/Calculadora-de-materiales-para-concreto";
-        diagrama = "https://firebasestorage.googleapis.com/v0/b/github-pages-7777b.appspot.com/o/Proyecto%20integrador%20logica%2F_Diagrama%20de%20flujo%20calculadora%20de%20materiales.png?alt=media&token=c3750946-2458-4bb8-b74d-de768726c10f";
+        titulo2 = "Cubicadora de volumen";
+        descripcion = "La Calculadora de Volumen Cubicado que se menciona continuación se refiere a una calculadora que toma las medidas de diferentes formas geométricas en el espacio tridimensional y calcula su volumen, elevando el resultado a la potencia de 3, lo que resulta en el volumen cúbico. Aquí puedes calcular el área cubicada:";
+        gist = "<script src='https://gist.github.com/CarlaSkillGH/8f1993cdd4bcfab070e81a6ea3dca9eb.js'></script>";
+        replit = "https://replit.com/@carlakarinazpt/PICalculadoraDeVolumen";
+        diagrama = "https://firebasestorage.googleapis.com/v0/b/proyecto-de-desarrollo-li.appspot.com/o/_Diagrama%20de%20flujo%20(4).png?alt=media&token=578a9365-a3b8-46bc-b0c0-8afff689f9d8";
         add(secciones.algoritmo(titulo1, titulo2, descripcion, algoritmo1(), gist, replit, diagrama));
+
         // Algoritmo2
         titulo1 = "Algoritmo 2";
         titulo2 = "Calculadora de materiales para concreto según la resistencia y cantidad.";
@@ -112,10 +111,60 @@ public class Grupo6View extends VerticalLayout {
         replit = "https://replit.com/@zsebax1994/Calculadora-de-materiales-para-concreto";
         diagrama = "https://firebasestorage.googleapis.com/v0/b/github-pages-7777b.appspot.com/o/Proyecto%20integrador%20logica%2F_Diagrama%20de%20flujo%20calculadora%20de%20materiales.png?alt=media&token=c3750946-2458-4bb8-b74d-de768726c10f";
         add(secciones.algoritmo(titulo1, titulo2, descripcion, algoritmo2(), gist, replit, diagrama));
+        // Algoritmo3
+        titulo1 = "Algoritmo 3";
+        titulo2 = "Convertidor de medidas. (Pies, Millas, Pulgadas y Metros)";
+        descripcion = " Este es un algoritmo capaz de convertir medidas en pies a metros, pulgadas a centímetros, millas a kilómetros, metros a centímetros."
+                + //
+                "";
+        gist = "<script src=\"https://gist.github.com/Sebaxtian18/067b8a0424be83df486d1782f56f43f4.js\"></script>";
+        replit = "https://replit.com/@zsebax1994/Convertidor-de-medidas-1?v=1";
+        diagrama = "https://firebasestorage.googleapis.com/v0/b/github-pages-7777b.appspot.com/o/Proyecto%20integrador%20logica%2F_Diagrama%20de%20flujo%20calculadora%20de%20materiales%20(1).png?alt=media&token=a74a28d4-fc4e-4f3e-a8f3-e7dc00330c86";
+        add(secciones.algoritmo(titulo1, titulo2, descripcion, algoritmo3(), gist, replit, diagrama));
 
     }
 
     public HorizontalLayout algoritmo1() {
+
+        VerticalLayout vl1 = new VerticalLayout();
+        vl1.setAlignItems(Alignment.CENTER);
+        vl1.add(new Image(
+                "https://firebasestorage.googleapis.com/v0/b/proyecto-de-desarrollo-li.appspot.com/o/sddefault.jpg?alt=media&token=080a2f79-16a8-4044-b448-680eefa4fb4b",
+                ""));
+
+        VerticalLayout vl2 = new VerticalLayout();
+        vl2.setAlignItems(Alignment.CENTER);
+
+        HorizontalLayout hl = new HorizontalLayout();
+        hl.setAlignItems(Alignment.CENTER);
+        hl.setWidthFull();
+
+        NumberField largo = new NumberField("Largo (cm)");
+        NumberField ancho = new NumberField("Ancho (cm)");
+        NumberField profundidad = new NumberField("Profundidad (cm)");
+        Button calcular = new Button("Calcular metros cúbicos");
+        H3 salida = new H3();
+
+        calcular.addClickListener(event -> {
+            Double valorAltura = largo.getValue();
+            Double valorAncho = ancho.getValue();
+            Double valorProfundidad = profundidad.getValue();
+            Double metrosCubicos = valorAltura * valorAncho * valorProfundidad;
+
+            salida.setText(String.valueOf(metrosCubicos + " Metros cubicos"));
+        });
+        vl2.add(new H3("Cubicadora"));
+        vl2.add(largo);
+        vl2.add(ancho);
+        vl2.add(profundidad);
+        vl2.add(calcular);
+        vl2.add(salida);
+        hl.add(vl1);
+        hl.add(vl2);
+        return hl;
+    }
+
+    public HorizontalLayout algoritmo2() {
 
         VerticalLayout vl1 = new VerticalLayout();
         vl1.setAlignItems(Alignment.CENTER);
@@ -237,7 +286,7 @@ public class Grupo6View extends VerticalLayout {
         return hl;
     }
 
-    public HorizontalLayout algoritmo2() {
+    public HorizontalLayout algoritmo3() {
 
         VerticalLayout vl1 = new VerticalLayout();
         vl1.setAlignItems(Alignment.CENTER);
