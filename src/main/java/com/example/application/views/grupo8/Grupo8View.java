@@ -10,6 +10,8 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.html.H3;
+import com.vaadin.flow.component.html.H4;
+import com.vaadin.flow.component.html.H6;
 import com.vaadin.flow.component.html.Hr;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
@@ -58,12 +60,13 @@ public class Grupo8View extends VerticalLayout {
 
         // Integrantes
         Map<String, String> est1 = new HashMap<>();
-        est1.put("image", "https://firebasestorage.googleapis.com/v0/b/fotos-proyecto-bfc34.appspot.com/o/Fotos%2FStiven%20Rojas%20Martinez%20-%20Grupo%208.png?alt=media&token=82c3be0d-f032-4043-9975-1666dafcf29d&_gl=1*147388c*_ga*MTY3NDMzNDI5NC4xNjk0NTQ2MzEz*_ga_CW55HF8NVT*MTY5Njg2ODg1NS4xMi4xLjE2OTY4NjkxMDQuMTguMC4w");
+        est1.put("image",
+                "https://firebasestorage.googleapis.com/v0/b/fotos-proyecto-bfc34.appspot.com/o/Fotos%2FStiven%20Rojas%20Martinez%20-%20Grupo%208.png?alt=media&token=82c3be0d-f032-4043-9975-1666dafcf29d&_gl=1*147388c*_ga*MTY3NDMzNDI5NC4xNjk0NTQ2MzEz*_ga_CW55HF8NVT*MTY5Njg2ODg1NS4xMi4xLjE2OTY4NjkxMDQuMTguMC4w");
         est1.put("name", "Stiven Rojas Martinez");
         Map<String, String> est2 = new HashMap<>();
-        est2.put("image", "https://firebasestorage.googleapis.com/v0/b/fotos-proyecto-bfc34.appspot.com/o/Fotos%2FJuan%20Miguel%20G%C3%B3mez.png?alt=media&token=1bbe6da3-e5db-4424-9e4e-55c324fa8329&_gl=1*18iuyys*_ga*MTQ5NTE1NzQ3Ni4xNjk2MzQ0MDA1*_ga_CW55HF8NVT*MTY5NjM0NDAwNS4xLjEuMTY5NjM0NjE1Ni42MC4wLjA.");
+        est2.put("image",
+                "https://firebasestorage.googleapis.com/v0/b/fotos-proyecto-bfc34.appspot.com/o/Fotos%2FJuan%20Miguel%20G%C3%B3mez.png?alt=media&token=1bbe6da3-e5db-4424-9e4e-55c324fa8329&_gl=1*18iuyys*_ga*MTQ5NTE1NzQ3Ni4xNjk2MzQ0MDA1*_ga_CW55HF8NVT*MTY5NjM0NDAwNS4xLjEuMTY5NjM0NjE1Ni42MC4wLjA.");
         est2.put("name", "Juan Miguel Gomez");
-
 
         users.add(est1);
         users.add(est2);
@@ -87,6 +90,13 @@ public class Grupo8View extends VerticalLayout {
 
     }
 
+    int modo = 0;
+    double cantidadNumeros;
+    double suma = 0;
+    double promedio;
+    double maximo = Double.MIN_VALUE;
+    double minimo = Double.MAX_VALUE;
+
     public HorizontalLayout algoritmo1() {
 
         VerticalLayout vl1 = new VerticalLayout();
@@ -100,37 +110,73 @@ public class Grupo8View extends VerticalLayout {
         hl.setAlignItems(Alignment.CENTER);
         hl.setWidthFull();
 
-        NumberField peso = new NumberField("Peso (kg)");
-        NumberField altura = new NumberField("Altura (m)");
-        Button calcular = new Button("Calcular IMC");
-        H3 salida = new H3();
+        NumberField datoEntrada = new NumberField("");
+        datoEntrada.setVisible(false);
+        Button btnGeneral = new Button("Iniciar Proceso");
 
-        calcular.addClickListener(event -> {
-            double valorPeso = peso.getValue();
-            double valorAltura = altura.getValue();
-            double imc = valorPeso / Math.pow(valorAltura, 2);
-            String info = "";
-            if (imc < 18.5) {
-                info = "Bajo peso";
-            } else if (imc >= 18.5 && imc < 24.9) {
-                info = "Peso saludable";
-            } else if (imc >= 25.0 && imc < 29.9) {
-                info = "Sobrepeso";
-            } else if (imc >= 30.0 && imc < 34.9) {
-                info = "Obesidad Clase 1";
-            } else if (imc >= 35.0 && imc < 39.9) {
-                info = "Obesidad Clase 2";
-            } else {
-                info = "Obesidad Clase 3";
+        H4 mensaje1 = new H4("");
+
+        H6 resultado1 = new H6("");
+        H6 resultado2 = new H6("");
+        H6 resultado3 = new H6("");
+        H6 resultado4 = new H6("");
+        H6 resultado5 = new H6("");
+
+        btnGeneral.addClickListener(event -> {
+            modo++;
+            if (modo == 1) {
+                mensaje1.setText("Ingrese la cantidad de números que desea procesar:");
+                datoEntrada.setVisible(true);
             }
-            String numeroFormateado = String.format("%.2f", imc);
-            salida.setText(String.valueOf(numeroFormateado + ", " + info));
+            if (modo == 2) {
+                cantidadNumeros = datoEntrada.getValue().doubleValue();
+                datoEntrada.setValue(null);
+                mensaje1.setText("Ingrese el número 1");
+                btnGeneral.setText("Ingresar");
+            }
+
+            if (modo > 2) {
+                if ((modo - 2) < cantidadNumeros) {
+
+                    double numero = datoEntrada.getValue().doubleValue();
+                    suma += numero;
+
+                    if (numero > maximo) {
+                        maximo = numero;
+                    }
+
+                    if (numero < minimo) {
+                        minimo = numero;
+                    }
+                    mensaje1.setText("Ingrese el número " + String.valueOf((modo - 1)));
+                    datoEntrada.setValue(null);
+                } else {
+                    if (cantidadNumeros > 0) {
+                        promedio = suma / cantidadNumeros;
+                        resultado1.setText("Resultados:");
+                        resultado2.setText("Suma: " + String.valueOf(suma));
+                        resultado3.setText("Promedio: " + String.valueOf(promedio));
+                        resultado4.setText("Valor Máximo: " + String.valueOf(maximo));
+                        resultado5.setText("Valor Mínimo: " + String.valueOf(minimo));
+                        modo=0;
+                    } else {
+                        System.out.println("No se ingresaron números.");
+                    }
+                }
+
+            }
+
         });
         vl2.add(new H3("Calculadora Índice de Masa Corporal (IMC)"));
-        vl2.add(peso);
-        vl2.add(altura);
-        vl2.add(calcular);
-        vl2.add(salida);
+        vl2.add(mensaje1);
+        vl2.add(datoEntrada);
+        vl2.add(btnGeneral);
+        vl2.add(resultado1);
+        vl2.add(resultado2);
+        vl2.add(resultado3);
+        vl2.add(resultado4);
+        vl2.add(resultado5);
+
         hl.add(vl1);
         hl.add(vl2);
         return hl;
