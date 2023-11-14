@@ -115,7 +115,7 @@ public class Grupo5View extends VerticalLayout {
         descripcion = "Hallar la hipotenusa en un triángulo rectángulo mediante el teorema de Pitágoras. El Teorema de Pitágoras dice que todo triángulo rectángulo el cuadrado de la hipotenusa es igual a la suma de los cuadrados de los catetos. Un triángulo rectángulo es aquel que tiene un ángulo de 90° y el lado opuesto a este ángulo se le conoce como hipotenusa y los otros lados se les conoce como catetos.";
         gist = "<script src=\"https://gist.github.com/CASanchezc5/3538207080891e061f491e20e5957075.js\"></script>";
         replit = "https://replit.com/@carlos-andre253/Algoritmo4";
-        diagrama = "https://firebasestorage.googleapis.com/v0/b/desarrollo-software-nelson.appspot.com/o/Teorema%20de%20Pitagoras%20-%20Diagrama%20de%20flujo.jpg?alt=media&token=d29542d8-d41d-4b8a-b411-a34977959988&_gl=1*weqc1i*_ga*MTcwMTI3Mzk1MS4xNjk2MzQ2MTUy*_ga_CW55HF8NVT*MTY5ODk0MTQxNi4xMi4xLjE2OTg5NDE0NzAuNi4wLjA";
+        diagrama = "https://firebasestorage.googleapis.com/v0/b/desarrollo-software-nelson.appspot.com/o/Teorema%20de%20Pitagoras%20-%20Diagrama%20de%20flujo.jpg?alt=media&token=d29542d8-d41d-4b8a-b411-a34977959988&_gl=1*weqc1i*_ga*MTcwMTI3Mzk1MS4xNjk2MzQ2MTUy*_ga_CW55HF8NVT*MTY5ODk0MTQxNi4xMi4xLjE2OTg5NDE0NzAuNi4w";
         add(secciones.algoritmo(titulo1, titulo2, descripcion, algoritmo4(), gist, replit, diagrama));
 
     }
