@@ -21,6 +21,8 @@ import com.vaadin.flow.component.textfield.IntegerField;
 import com.vaadin.flow.component.textfield.NumberField;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
+import com.vaadin.flow.component.combobox.ComboBox;
+
 
 @PageTitle("Grupo 9")
 @Route(value = "grupo-9", layout = MainLayout.class)
@@ -88,7 +90,15 @@ public class Grupo9View extends VerticalLayout {
         diagrama = "https://firebasestorage.googleapis.com/v0/b/imagenes-e192b.appspot.com/o/diagrama%20de%20flujo-1.png?alt=media&token=e546629b-c9e6-460b-9866-5c46aa086711";
         add(secciones.algoritmo(titulo1, titulo2, descripcion, algoritmo1(), gist, replit, diagrama));
 
-        
+        // Algoritmo2
+        titulo1 = "Algoritmo 2";
+        titulo2 = "Calcular Metabolismo";
+        descripcion = "Es la cantidad de energia necesaria para mantener las funciones vitales del cuerpo, como el latido del corazón, la presion arterial, la respiración y el mantenimeinto de la temperatura corporal, durante 24 horas Se define por kilocalorias.:";
+        gist = "<script src=\"https://gist.github.com/santi0804/d2ddf35172474be6a07310f830c93f60.js\"></script>";
+        replit = "https://replit.com/@SantiagoTamayo4/algoritmo-2#Main.java";
+        diagrama = "https://firebasestorage.googleapis.com/v0/b/a1234-ecd94.appspot.com/o/Diagrama%20de%20flujo-2.png?alt=media&token=0f9766a3-ba0f-488f-b147-cf44597b10a3";
+
+        add(secciones.algoritmo(titulo1, titulo2, descripcion, algoritmo2(), gist, replit, diagrama));
 
     }
 
@@ -137,6 +147,58 @@ public class Grupo9View extends VerticalLayout {
             salida.setText("Su grasa corporal es aproximadamente: " + grasacorporal + "%");
 
         });
+        vl2.add(new H3("Calculadora metabolismo"));
+        vl2.add(peso);
+        vl2.add(altura);
+        vl2.add(edad);
+        vl2.add(genero);
+        vl2.add(calcular);
+        vl2.add(salida);
+        hl.add(vl1);
+        hl.add(vl2);
+        return hl;
+    }
+    public HorizontalLayout algoritmo2() {
+
+        VerticalLayout vl1 = new VerticalLayout();
+        vl1.setAlignItems(Alignment.CENTER);
+        vl1.add(new Image(
+                "https://firebasestorage.googleapis.com/v0/b/a1234-ecd94.appspot.com/o/metabolismo%20basal.avif?alt=media&token=9e904c1c-f9b5-48d9-900c-37d0b6d5339a    ",
+                ""));
+
+        VerticalLayout vl2 = new VerticalLayout();
+        vl2.setAlignItems(Alignment.CENTER);
+
+        HorizontalLayout hl = new HorizontalLayout();
+        hl.setAlignItems(Alignment.CENTER);
+        hl.setWidthFull();
+
+        NumberField peso = new NumberField("Peso (kg)");
+        NumberField altura = new NumberField("Altura (m)");
+        IntegerField edad = new IntegerField("Edad");
+        ComboBox<String> genero = new ComboBox<>("Género");
+        genero.setAllowCustomValue(true);
+        List<String> opcionesgenero = Arrays.asList("Hombre", "Mujer");
+        genero.setItems(opcionesgenero);
+        Button calcular = new Button("Calcular");
+        H3 salida = new H3();
+
+        calcular.addClickListener(event -> {
+            double valorpeso = peso.getValue();
+            double valoraltura = altura.getValue();
+            int valoredad = edad.getValue();
+            String valorgenero = genero.getValue();
+            double metabolismoBasal = 0;
+            genero.setValue(valorgenero);
+
+            if (valorgenero.equalsIgnoreCase("hombre")) {
+                metabolismoBasal = 88.362 + (13.397 * valorpeso) + (4.799 * valoraltura) - (5.677 * valoredad);
+            } else if (valorgenero.equalsIgnoreCase("mujer")) {
+                metabolismoBasal = 447.593 + (9.247 * valorpeso) + (3.098 * valoraltura) - (4.330 * valoredad);
+            }
+            salida.setText("Su metabolismo basal es: " + metabolismoBasal + " kcal/día.");
+
+        });
         vl2.add(new H3("Calculadora grasa corporal"));
         vl2.add(peso);
         vl2.add(altura);
@@ -148,4 +210,10 @@ public class Grupo9View extends VerticalLayout {
         hl.add(vl2);
         return hl;
     }
+
+
+
+
+        
+
 }
