@@ -79,14 +79,14 @@ public class Grupo8View extends VerticalLayout {
         String replit;
         String diagrama;
 
-        // Algoritmo1
-        titulo1 = "Algoritmo 1";
-        titulo2 = "Calculadora Índice de Masa Corporal (IMC)";
-        descripcion = "El Índice de Masa Corporal (IMC) es una medida utilizada para evaluar si una persona tiene un peso saludable en relación con su altura. Se calcula dividiendo el peso de una persona en kilogramos por el cuadrado de su altura en metros. La fórmula básica del IMC es la siguiente:";
-        gist = "<script src=\"https://gist.github.com/jfinfocesde/e2da562bb64be1b54f461de2cd5c001d.js\"></script>";
-        replit = "https://replit.com/@jhonvalencia3/ProyectoPrueba";
-        diagrama = "https://firebasestorage.googleapis.com/v0/b/cesde-7fe22.appspot.com/o/Proyecto%20Integrador%2FDiagrama.svg?alt=media&token=e04cad73-fd1c-4972-a571-da1389d04689";
-        add(secciones.algoritmo(titulo1, titulo2, descripcion, algoritmo1(), gist, replit, diagrama));
+         // Algoritmo1
+         titulo1 = "Algoritmo 1";
+         titulo2 = "Calculadora de estadística";
+         descripcion = "El cálculo estadístico sirve para realizar cálculos estadísticos con los datos que introduce en el editor de estadística. Si presiona la tecla mientras se muestra el editor de estadística, se cambia a la pantalla de cálculo estadístico.:";
+         gist = "<script src=\\\"https://gist.github.com/stiven2k/2b013389b98321a6da6e3faadd25d2d0.js\\\"></script>";
+         replit = " https://replit.com/@Juan-MiguelM162/Estadistica#Main.java";
+         diagrama = "https://firebasestorage.googleapis.com/v0/b/foto-49861.appspot.com/o/code2flow_Hk936E%20(1).png?alt=media&token=3da58480-1aa8-44d3-baec-1f9407ca89d6";
+         add(secciones.algoritmo(titulo1, titulo2, descripcion, algoritmo1(), gist, replit, diagrama));
 
     }
 
@@ -101,7 +101,7 @@ public class Grupo8View extends VerticalLayout {
 
         VerticalLayout vl1 = new VerticalLayout();
         vl1.setAlignItems(Alignment.CENTER);
-        vl1.add(new Image("https://static.tuasaude.com/media/article/me/dr/imc_15748_l.jpg", ""));
+        vl1.add(new Image("https://firebasestorage.googleapis.com/v0/b/fotos-proyecto-bfc34.appspot.com/o/1.jpg?alt=media&token=61504639-c4b0-45af-b978-bc2e7ff8f3d9", ""));
 
         VerticalLayout vl2 = new VerticalLayout();
         vl2.setAlignItems(Alignment.CENTER);
@@ -167,7 +167,7 @@ public class Grupo8View extends VerticalLayout {
             }
 
         });
-        vl2.add(new H3("Calculadora Índice de Masa Corporal (IMC)"));
+        vl2.add(new H3("Calculadora estadística"));
         vl2.add(mensaje1);
         vl2.add(datoEntrada);
         vl2.add(btnGeneral);
