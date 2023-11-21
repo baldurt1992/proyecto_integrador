@@ -88,6 +88,8 @@ public class Grupo9View extends VerticalLayout {
         diagrama = "https://firebasestorage.googleapis.com/v0/b/imagenes-e192b.appspot.com/o/diagrama%20de%20flujo-1.png?alt=media&token=e546629b-c9e6-460b-9866-5c46aa086711";
         add(secciones.algoritmo(titulo1, titulo2, descripcion, algoritmo1(), gist, replit, diagrama));
 
+        
+
     }
 
     public HorizontalLayout algoritmo1() {

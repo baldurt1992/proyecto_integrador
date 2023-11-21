@@ -85,8 +85,19 @@ public class Grupo3View extends VerticalLayout {
                 "";
         gist = " <script src=\"https://gist.github.com/nicolasgarcia01/365e1c7d6174e7779474847e2586e145.js\"></script>";
         replit = "https://replit.com/@NicolasGarcia82/numero3";
-        diagrama = "    ";
+        diagrama = "https://firebasestorage.googleapis.com/v0/b/axu-aux.appspot.com/o/Untitled%20Workspace%20(1)%20(1).jpg?alt=media&token=f7124912-0860-4098-8395-b697c4d06df7";
         add(secciones.algoritmo(titulo1, titulo2, descripcion, algoritmo1(), gist, replit, diagrama));
+
+        //Algoritmo2
+
+        titulo1 = "Algoritmo 2";
+        titulo2 = "Algoritmo genético.";
+        descripcion = "Es un programa para analizar el genotipo de un organismo basado en la herencia de rasgos genéticos, más que un algoritmo genético.";
+        gist = "<script src=\"https://gist.github.com/nicolasgarcia01/4f5e0c14fc56bb2e67c1a8208e953a6c.js\"></script>";
+        replit = "https://replit.com/@NicolasGarcia82/numero3#Main.java";
+        diagrama = "https://firebasestorage.googleapis.com/v0/b/axu-aux.appspot.com/o/Untitled%20Workspace%20(2).jpg?alt=media&token=91bdcd48-95ab-4732-8ea8-97b40d9281ea";
+        add(secciones.algoritmo(titulo1, titulo2, descripcion, algoritmo2(), gist, replit, diagrama));
+
 
     }
 
@@ -138,6 +149,65 @@ public class Grupo3View extends VerticalLayout {
         hl.add(vl1);
         hl.add(vl2);
         return hl;
+    }
+
+    public HorizontalLayout algoritmo2() {
+
+
+        VerticalLayout vl1 = new VerticalLayout();
+        vl1.setAlignItems(Alignment.CENTER);
+        vl1.add(new Image(
+                "https://firebasestorage.googleapis.com/v0/b/axu-aux.appspot.com/o/OIP-fotor-20231113155222.jpg?alt=media&token=eafdbc09-3625-4790-b157-313f01b18f3e",
+                ""));
+
+
+        VerticalLayout vl2 = new VerticalLayout();
+        vl2.setAlignItems(Alignment.CENTER);
+
+
+        HorizontalLayout hl = new HorizontalLayout();
+        hl.setAlignItems(Alignment.CENTER);
+        hl.setWidthFull();
+
+
+        Button calcular = new Button("Genotipo");
+        ComboBox<String> genotipo = new ComboBox<>("Seleccione el genotipo");
+        genotipo.setAllowCustomValue(true);
+        List<String> opcionesgenotipo = Arrays.asList("AA", "Aa", "aa");
+        genotipo.setItems(opcionesgenotipo);
+        H3 salida = new H3("");
+
+
+        calcular.addClickListener(event -> {
+
+
+            String resultado = "";
+
+
+            if (genotipo.getValue().equals("AA")) {
+                resultado = "El organismo es homocigoto dominante.";
+            } else if (genotipo.getValue().equals("Aa")) {
+                resultado = "El organismo es heterocigoto.";
+            } else if (genotipo.getValue().equals("aa")) {
+                resultado = "El organismo es homocigoto recesivo.";
+            } else {
+                resultado = "El genotipo ingresado no es válido.";
+            }
+
+
+            salida.setText("" + resultado);
+
+
+        });
+        vl2.add(new H3("Algoritmo de Genetipo."));
+        vl2.add(genotipo);
+        vl2.add(calcular);
+        vl2.add(salida);
+        hl.add(vl1);
+        hl.add(vl2);
+        return hl;
+
+
     }
 
 }

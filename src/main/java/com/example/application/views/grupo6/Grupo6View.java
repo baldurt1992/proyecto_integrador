@@ -291,7 +291,7 @@ public class Grupo6View extends VerticalLayout {
         VerticalLayout vl1 = new VerticalLayout();
         vl1.setAlignItems(Alignment.CENTER);
         vl1.add(new Image(
-                "https://firebasestorage.googleapis.com/v0/b/github-pages-7777b.appspot.com/o/Proyecto%20integrador%20logica%2Fconcreto1.jpg?alt=media&token=1e6c5845-cd38-4b58-b892-49f343f60df8",
+                "https://firebasestorage.googleapis.com/v0/b/fotos-proyecto-bfc34.appspot.com/o/tama%C3%B1o-imagenes-redes-sociales-1030x539-fotor-2023112173957.jpg?alt=media&token=f7ff0152-86c7-4140-a777-eaeef97ffbbc",
                 ""));
 
         VerticalLayout vl2 = new VerticalLayout();
