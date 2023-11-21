@@ -98,7 +98,7 @@ public class Grupo6View extends VerticalLayout {
         descripcion = "La Calculadora de Volumen Cubicado que se menciona continuación se refiere a una calculadora que toma las medidas de diferentes formas geométricas en el espacio tridimensional y calcula su volumen, elevando el resultado a la potencia de 3, lo que resulta en el volumen cúbico. Aquí puedes calcular el área cubicada:";
         gist = "<script src='https://gist.github.com/CarlaSkillGH/8f1993cdd4bcfab070e81a6ea3dca9eb.js'></script>";
         replit = "https://replit.com/@carlakarinazpt/PICalculadoraDeVolumen";
-        diagrama = "https://firebasestorage.googleapis.com/v0/b/proyecto-de-desarrollo-li.appspot.com/o/_Diagrama%20de%20flujo%20(4).png?alt=media&token=578a9365-a3b8-46bc-b0c0-8afff689f9d8";
+        diagrama = "https://firebasestorage.googleapis.com/v0/b/proyecto-de-desarrollo-li.appspot.com/o/_Diagrama%20de%20flujo%20(5).png?alt=media&token=3c3dcfce-6d52-49e5-862a-d807221b5a7a";
         add(secciones.algoritmo(titulo1, titulo2, descripcion, algoritmo1(), gist, replit, diagrama));
 
         // Algoritmo2
@@ -119,7 +119,7 @@ public class Grupo6View extends VerticalLayout {
                 "";
         gist = "<script src=\"https://gist.github.com/Sebaxtian18/067b8a0424be83df486d1782f56f43f4.js\"></script>";
         replit = "https://replit.com/@zsebax1994/Convertidor-de-medidas-1?v=1";
-        diagrama = "https://firebasestorage.googleapis.com/v0/b/github-pages-7777b.appspot.com/o/Proyecto%20integrador%20logica%2F_Diagrama%20de%20flujo%20calculadora%20de%20materiales%20(1).png?alt=media&token=a74a28d4-fc4e-4f3e-a8f3-e7dc00330c86";
+        diagrama = "https://firebasestorage.googleapis.com/v0/b/proyecto-de-desarrollo-li.appspot.com/o/_Diagrama%20de%20flujo%20(5).png?alt=media&token=facae807-7c43-4236-9448-d2211a2d3b10";
         add(secciones.algoritmo(titulo1, titulo2, descripcion, algoritmo3(), gist, replit, diagrama));
 
     }
