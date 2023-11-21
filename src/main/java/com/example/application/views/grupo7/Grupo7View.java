@@ -90,8 +90,8 @@ public class Grupo7View extends VerticalLayout {
 
                 // Algoritmo1
                 titulo1 = "Algoritmo 1";
-                titulo2 = "Calculadora Índice de Masa Corporal (IMC)";
-                descripcion = "El Índice de Masa Corporal (IMC) es una medida utilizada para evaluar si una persona tiene un peso saludable en relación con su altura. Se calcula dividiendo el peso de una persona en kilogramos por el cuadrado de su altura en metros. La fórmula básica del IMC es la siguiente:";
+                titulo2 = "Triqui";
+                descripcion = "Disfruta de este clásico juego.";
                 gist = "<script src=\"https://gist.github.com/jfinfocesde/e2da562bb64be1b54f461de2cd5c001d.js\"></script>";
                 replit = "https://replit.com/@jhonvalencia3/ProyectoPrueba";
                 diagrama = "https://firebasestorage.googleapis.com/v0/b/cesde-7fe22.appspot.com/o/Proyecto%20Integrador%2FDiagrama.svg?alt=media&token=e04cad73-fd1c-4972-a571-da1389d04689";
