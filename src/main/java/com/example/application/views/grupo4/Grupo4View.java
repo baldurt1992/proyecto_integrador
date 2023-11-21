@@ -13,6 +13,8 @@ import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.html.H3;
 import com.vaadin.flow.component.html.Hr;
 import com.vaadin.flow.component.html.Image;
+import com.vaadin.flow.component.icon.Icon;
+import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
@@ -91,6 +93,15 @@ public class Grupo4View extends VerticalLayout {
         diagrama = "https://firebasestorage.googleapis.com/v0/b/adivina-b2f41.appspot.com/o/code2flow_GFMARk%20(1).png?alt=media&token=eec7f2be-dd58-49f8-98cc-bee3e080d76d&_gl=1*pjfvsq*_ga*OTY1OTU1NTU1LjE2OTc1NTM5ODc.*_ga_CW55HF8NVT*MTY5NzU1Mzk4Ny4xLjEuMTY5NzU1NDE1OS41MC4wLjA";
         add(secciones.algoritmo(titulo1, titulo2, descripcion, algoritmo1(), gist, replit, diagrama));
 
+        // Algoritmo2
+        titulo1 = "Algoritmo 2";
+        titulo2 = "Piedra, Papel o Tijera";
+        descripcion = "Es un juego interactivo diseñado para que un usuario juegue contra la computadora. El programa solicitará al usuario que elija entre \"piedra\", \"papel\" o \"tijera\" ";
+        gist = "";
+        replit = "https://replit.com/@JuanIsaza/PiedraPapelTijera";
+        diagrama = "";
+        add(secciones.algoritmo(titulo1, titulo2, descripcion, algoritmo2(), gist, replit, diagrama));
+
     }
 
     private int numeroAdivinar;
@@ -142,6 +153,96 @@ public class Grupo4View extends VerticalLayout {
         hl.add(vl1);
         hl.add(vl2);
         return hl;
+    }
+
+    H3 seleccionComputadora = new H3("");
+    H3 resultado = new H3("");
+
+    public HorizontalLayout algoritmo2() {
+
+        VerticalLayout vl1 = new VerticalLayout();
+        vl1.setAlignItems(Alignment.CENTER);
+        vl1.add(new Image(
+                "https://firebasestorage.googleapis.com/v0/b/fotos-proyecto-bfc34.appspot.com/o/istockphoto-1269211670-612x612.jpg?alt=media&token=5e390f66-53fa-4a2f-bdb2-0c9d6c45d01d",
+                ""));
+
+        VerticalLayout vl2 = new VerticalLayout();
+        vl2.setAlignItems(Alignment.CENTER);
+
+        HorizontalLayout hl = new HorizontalLayout();
+        hl.setAlignItems(Alignment.CENTER);
+        hl.setWidthFull();
+
+        HorizontalLayout hbtn = new HorizontalLayout();
+        hl.setAlignItems(Alignment.CENTER);
+        hl.setWidthFull();
+
+        Button btnPiedra = new Button(new Icon(VaadinIcon.CIRCLE));
+        Button btnPapel = new Button(new Icon(VaadinIcon.EDIT));
+        Button btnTijera = new Button(new Icon(VaadinIcon.SCISSORS));
+
+        btnPiedra.setWidth("80px");
+        btnPiedra.setHeight("80px");
+        btnPapel.setWidth("80px");
+        btnPapel.setHeight("80px");
+        btnTijera.setWidth("80px");
+        btnTijera.setHeight("80px");
+
+        H3 seleccionUsuario = new H3("");
+
+        btnPiedra.addClickListener(event -> {
+            seleccionUsuario.setText("Piedra");
+            resultado.setText(playGame("Piedra"));
+        });
+
+        btnPapel.addClickListener(event -> {
+            resultado.setText(playGame("Papel"));
+        });
+
+        btnTijera.addClickListener(event -> {
+            resultado.setText(playGame("Tijera"));
+        });
+
+        // Añadir componentes al diseño vertical
+        vl2.add(new H3("Piedra, Papel o Tijera"));
+        hbtn.add(btnPiedra);
+        hbtn.add(btnPapel);
+        hbtn.add(btnTijera);
+        vl2.add(hbtn);
+        vl2.add(new H2("Usuario:"));
+        vl2.add(seleccionUsuario);
+        vl2.add(new H2("Computadora:"));
+        vl2.add(seleccionComputadora);
+        vl2.add(new H2("Resultado:"));
+        vl2.add(resultado);
+
+        hl.add(vl1);
+        hl.add(vl2);
+        return hl;
+
+    }
+
+    private String playGame(String userChoice) {
+        // Generar la elección de la computadora aleatoriamente
+        String[] choices = { "Piedra", "Papel", "Tijera" };
+        Random random = new Random();
+        String computerChoice = choices[random.nextInt(choices.length)];
+        seleccionComputadora.setText(computerChoice);
+        // Determinar el resultado del juego
+        return determineWinner(userChoice, computerChoice);
+    }
+
+    private String determineWinner(String userChoice, String computerChoice) {
+        if (userChoice.equalsIgnoreCase(computerChoice)) {
+            return "¡Empate!";
+        } else if ((userChoice.equalsIgnoreCase("Piedra") && computerChoice.equalsIgnoreCase("Tijera")) ||
+                (userChoice.equalsIgnoreCase("Papel") && computerChoice.equalsIgnoreCase("Piedra")) ||
+                (userChoice.equalsIgnoreCase("Tijera") && computerChoice.equalsIgnoreCase("Papel"))) {
+            return "¡Ganaste!";
+        } else {
+            return "¡Perdiste!";
+        }
+
     }
 
 }
