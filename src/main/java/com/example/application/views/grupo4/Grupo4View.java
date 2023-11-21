@@ -96,7 +96,7 @@ public class Grupo4View extends VerticalLayout {
         // Algoritmo2
         titulo1 = "Algoritmo 2";
         titulo2 = "Piedra, Papel o Tijera";
-        descripcion = "Es un juego interactivo diseñado para que un usuario juegue contra la computadora. El programa solicitará al usuario que elija entre \"piedra\", \"papel\" o \"tijera\" ";
+        descripcion = "Es un juego interactivo diseñado para que un usuario juegue contra la computadora. El programa solicitará al usuario que elija entre \"piedra\", \"papel\" o \"tijera\".";
         gist = "<script src=\"https://gist.github.com/Isazaaa/a196fdccd01532fbd953e6ea1df6a402.js\"></script>";
         replit = "https://replit.com/@JuanIsaza/PiedraPapelTijera";
         diagrama = "https://firebasestorage.googleapis.com/v0/b/adivina-b2f41.appspot.com/o/code2flow_idqeEV.png?alt=media&token=38c6b871-6f69-4020-90c1-5e696062ce9a";
