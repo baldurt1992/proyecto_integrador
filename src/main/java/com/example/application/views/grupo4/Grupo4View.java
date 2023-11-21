@@ -124,6 +124,7 @@ public class Grupo4View extends VerticalLayout {
         HorizontalLayout hl = new HorizontalLayout();
         hl.setAlignItems(Alignment.CENTER);
         hl.setWidthFull();
+        H3 salida = new H3 ();
 
         Random rand = new Random();
         numeroAdivinar = rand.nextInt(100) + 1;
@@ -136,11 +137,11 @@ public class Grupo4View extends VerticalLayout {
             intentos++;
             int suposicion = Integer.parseInt(textField.getValue());
             if (suposicion < numeroAdivinar) {
-                Notification.show("El número es mayor. Intenta de nuevo.");
+                salida.setText("El número es mayor. Intenta de nuevo.");
             } else if (suposicion > numeroAdivinar) {
-                Notification.show("El número es menor. Intenta de nuevo.");
+                salida.setText("El número es menor. Intenta de nuevo.");
             } else {
-                Notification.show("¡Felicidades! Adivinaste el número en " + intentos + " intentos.");
+                salida.setText("¡Felicidades! Adivinaste el número en " + intentos + " intentos.");
                 textField.setEnabled(false);
                 adivinarButton.setEnabled(false);
             }
@@ -149,7 +150,7 @@ public class Grupo4View extends VerticalLayout {
         vl2.add(new H3("¿Puedes adivinar el número?"));
         vl2.add(textField);
         vl2.add(adivinarButton);
-        vl2.add();
+        vl2.add(salida);
         hl.add(vl1);
         hl.add(vl2);
         return hl;
