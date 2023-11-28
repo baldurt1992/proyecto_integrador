@@ -66,9 +66,13 @@ public class Grupo3View extends VerticalLayout {
         Map<String, String> est2 = new HashMap<>();
         est2.put("image", "https://firebasestorage.googleapis.com/v0/b/fotos-proyecto-bfc34.appspot.com/o/Fotos%2FNicolas%20Garcia.png?alt=media&token=fc119826-8e25-4060-b337-20207bc25552&_gl=1*txo5r8*_ga*MTQ5NTE1NzQ3Ni4xNjk2MzQ0MDA1*_ga_CW55HF8NVT*MTY5NjM0NDAwNS4xLjEuMTY5NjM0NTU1NS4zNS4wLjA.");
         est2.put("name", "Nicolas Garcia");
+        Map<String, String> est3 = new HashMap<>();
+        est3.put("image", "https://firebasestorage.googleapis.com/v0/b/fotos-proyecto-bfc34.appspot.com/o/Andr%C3%A9s%20Felipe%20Buririca.png?alt=media&token=0c1fd8e6-9803-4aab-bd09-43c4a93209ba");
+        est3.put("name", "Andrés Felipe Buriticá");
 
         users.add(est1);
         users.add(est2);
+        users.add(est3);
         add(secciones.students(users));
 
         String titulo1;
