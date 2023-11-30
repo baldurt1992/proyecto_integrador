@@ -94,7 +94,7 @@ public class Grupo7View extends VerticalLayout {
                 descripcion = "Disfruta de este clásico juego.";
                 gist = "<script src=\"https://gist.github.com/jfinfocesde/e2da562bb64be1b54f461de2cd5c001d.js\"></script>";
                 replit = "https://replit.com/@jhonvalencia3/ProyectoPrueba";
-                diagrama = "https://firebasestorage.googleapis.com/v0/b/cesde-7fe22.appspot.com/o/Proyecto%20Integrador%2FDiagrama.svg?alt=media&token=e04cad73-fd1c-4972-a571-da1389d04689";
+                diagrama = "https://firebasestorage.googleapis.com/v0/b/njj-88377.appspot.com/o/cesde%2FImagen%20de%20WhatsApp%202023-11-29%20a%20las%2022.49.59_99e85342.jpg?alt=media&token=dc33ff09-a22f-48aa-af00-d244356c8aef ";
                 add(secciones.algoritmo(titulo1, titulo2, descripcion, algoritmo1(), gist, replit, diagrama));
 
                 // Algoritmo2
