@@ -148,7 +148,7 @@ public class Grupo7View extends VerticalLayout {
                 VerticalLayout vl1 = new VerticalLayout();
                 vl1.setAlignItems(Alignment.CENTER);
                 vl1.add(new Image(
-                                "https://firebasestorage.googleapis.com/v0/b/fotogit-b823c.appspot.com/o/8605_juego_didactico_triqui_-fotor-20231024145029.jpg?alt=media&token=c7915a80-2a91-44e1-acc6-2976fab45bf8&_gl=1*1ml1re*_ga*MTY3NDMzNDI5NC4xNjk0NTQ2MzEz*_ga_CW55HF8NVT*MTY5ODE3NjkwNC4yMC4xLjE2OTgxNzcwNDcuNDkuMC4w",
+                                "https://firebasestorage.googleapis.com/v0/b/fotogit-b823c.appspot.com/o/x1080-fotor-2023112922457.jpg?alt=media&token=b09879ec-5d6c-4719-a853-7f1303dcd486",
                                 ""));
 
                 VerticalLayout vl2 = new VerticalLayout();
@@ -247,7 +247,5 @@ public class Grupo7View extends VerticalLayout {
                 // la palabra es valida solo si tiene las letras que estan en la lista
                 return true;
         }
-
-        
 
 }

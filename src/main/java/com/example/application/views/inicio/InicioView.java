@@ -16,7 +16,7 @@ import com.vaadin.flow.router.RouteAlias;
 @PageTitle("Inicio")
 @Route(value = "inicio", layout = MainLayout.class)
 @RouteAlias(value = "", layout = MainLayout.class)
-public class InicioView extends VerticalLayout {   
+public class InicioView extends VerticalLayout {
 
     public InicioView() {
 
@@ -25,7 +25,7 @@ public class InicioView extends VerticalLayout {
         getStyle().set("background-size", "cover");
         getStyle().set("background",
                 "url(https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)");
-               
+
         setAlignItems(Alignment.CENTER);
         setSizeFull();
 
@@ -40,11 +40,11 @@ public class InicioView extends VerticalLayout {
         vl.setAlignItems(Alignment.CENTER);
         vl.setWidthFull();
         H1 titulo = new H1("Proyecto Integrador");
-        //titulo.getStyle().set("color", "white");
+        // titulo.getStyle().set("color", "white");
         H3 submodulo = new H3("Lógica de Programación");
-        //submodulo.getStyle().set("color", "white");
+        // submodulo.getStyle().set("color", "white");
         H3 nivel = new H3("Docente: Jhon Fredy Valencia Gómez");
-        //nivel.getStyle().set("color", "white");
+        // nivel.getStyle().set("color", "white");
         vl.add(titulo);
         vl.add(submodulo);
         vl.add(nivel);
@@ -60,7 +60,7 @@ public class InicioView extends VerticalLayout {
         VerticalLayout vl = new VerticalLayout();
         vl.setAlignItems(Alignment.CENTER);
         vl.setWidthFull();
-        IFrame iFrame = new IFrame("https://www.youtube.com/embed/dQw4w9WgXcQ");
+        IFrame iFrame = new IFrame("https://www.youtube.com/embed/PhyHF6BO-sk?si=cZ_8oLGRp7xH7dO3");
         iFrame.setHeight("315px");
         iFrame.setWidth("560px");
         iFrame.setAllow("accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture");
